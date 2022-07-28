@@ -30,8 +30,8 @@ try
         sprintf("SELECT * FROM users WHERE email='%s'",
         mysqli_real_escape_string($connection, $email))))
         {
-            $ilu_userow = $result->num_rows;
-            if($ilu_userow>0)
+            $how_many_users = $result->num_rows;
+            if($how_many_users>0)
             {
                 $row = $result->fetch_assoc();
                 
@@ -48,13 +48,13 @@ try
                 }
                 else 
                 {
-                    $_SESSION['error'] = '<span>Nieprawidłowy login lub hasło!</span>';
+                    $_SESSION['error'] = '<span>Incorrect login or password!</span>';
                     header('Location: index.php');
                 }
                 
             } else {
                 
-                $_SESSION['error'] = '<span>Nieprawidłowy login lub hasło!</span>';
+                $_SESSION['error'] = '<span>Incorrect login or password!</span>';
                 header('Location: index.php');   
             }        
         }
@@ -68,7 +68,7 @@ try
 }
 catch(Exception $e)
 {
-    echo '<span>Błąd serwera! Przepraszamy za niedogodności i prosimy o wizytę w innym terminie!</span>';
+    echo '<span>Server error! We apologize for the inconvenience and please register at a later date.</span>';
     echo '<br />Informacja developerska: '.$e;
 }
 ?>

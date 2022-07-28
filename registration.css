@@ -5,7 +5,7 @@ h1.logo{
     font-size: 50px;
     text-align: center;
     letter-spacing: 3px;
-    margin-top: 80px;
+    margin-top: 40px;
     margin-bottom: 5px;
     color: indigo;
     font-family: 'Libre Bodoni', serif;
@@ -34,7 +34,7 @@ h4{
     color: indigo;
 }
 article{
-  height: 600px;
+  height: 750px;
   border-width: 3px;
   border-color: #b180ce;
   border-style: solid;
@@ -49,12 +49,11 @@ article{
     margin-right: auto;
 }
 form{
-    background-color: white;
-    height: 450px;
+    height: 615px;
     padding: 20px;
-    -webkit-box-shadow: 3px 3px 30px 5px #be95c4;
+   /* -webkit-box-shadow: 3px 3px 30px 5px #be95c4;
     -moz-box-shadow: 3px 3px 30px 5px #be95c4;
-    box-shadow: 3px 3px 30px 5px #be95c4;
+    box-shadow: 3px 3px 30px 5px #be95c4;*/
 }
 input[type=text],
 input[type=password],
@@ -65,6 +64,7 @@ input[type=email]{
     border: 2px solid #be95c4;
     border-radius: 5px;
     font-size: 25px;
+    margin-top: 5px;
     padding: 10px;
     outline: none;
     font-family: 'Darker Grotesque', sans-serif;
@@ -86,7 +86,7 @@ input[type=submit]{
     color: white;
     padding-top: 5px;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -149,4 +149,5 @@ footer{
     margin-left: 38px;
 
 }
+
 

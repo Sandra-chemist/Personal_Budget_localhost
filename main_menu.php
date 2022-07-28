@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Personal Budget - Main Menu</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="main_menu.css" type="text/css">
+    <link rel="stylesheet" href="main_menuu.css" type="text/css">
     <link rel="stylesheet" href="css/fontello.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
@@ -28,13 +28,13 @@
     <header>
         <h1 class="logo">Personal Budget</h1>
         <h4> Your Finance Manager </h4>
-        <?php
-   echo "<p>Hello ".$_SESSION['username'];
-?>
     </header>
     <main>
         <article class="container-fluid">
             <header>
+            <?php
+   echo "<p>Hello ".$_SESSION['username'];
+?>
                 <h2 class="logo">Main menu</h2>
             </header>
             <div class="row">
@@ -57,8 +57,8 @@
                     </p>
                     <p>
                         <i class="icon-logout"></i>
-                        <input type="submit" value="Sign out">
-                        <a href="logout.php">Log out!</a>
+                        
+                        <a href="logout.php"><input type="button" value="Sign out"></a>
                     </p>
                 </form>
             </div>

@@ -13,7 +13,7 @@
 
         if ((strlen($password) < 8) || (strlen($password) > 20)){
             $all_ok = false;
-            $_SESSION['e_password'] = "Haslo musi posiadac od 8 do 20 znakow!";
+            $_SESSION['e_password'] = "Your password must be between 8-20 characters";
         }
 
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
@@ -21,7 +21,7 @@
         //Czy zaakceptowano regulamin?
         if (!isset($_POST['conditions'])){
             $all_ok = false;
-            $_SESSION['e_conditions'] = "Potwierdz akceptację regulaminu";
+            $_SESSION['e_conditions'] = "Please confirm terms and conditions";
         }
 
         //Bot or not?
@@ -33,7 +33,7 @@
 
         if ($answer->success == false){
             $all_ok = false;
-            $_SESSION['e_bot'] = "Potwierdz, ze nie jestes botem!";
+            $_SESSION['e_bot'] = "Please confirm that you are not a robot!";
         }
 
         //Zapamietaj wprowadzone dane
@@ -59,15 +59,15 @@
 				
 				if (!$result) throw new Exception($connection->error);
 				
-				$ile_takich_maili = $result->num_rows;
+				$how_many_email = $result->num_rows;
 
-                if($ile_takich_maili>0)
+                if($how_many_email>0)
 				{
 					$all_ok=false;
-					$_SESSION['e_email']="Istnieje już konto przypisane do tego adresu e-mail!";
+					$_SESSION['e_email']="An account already exists with this email address";
 				}	
                 if ($all_ok == true){
-                    //hurra, wszystkie testy zaliczone, dodajemy do bazy
+                    //Wszystkie testy zaliczone, dodajemy do bazy
                     if ($connection->query("INSERT INTO users VALUES (NULL, '$username','$password_hash', '$email')")){
                         $_SESSION['successfulRegistration'] = true;
                         header('Location: welcome.php');
@@ -80,7 +80,7 @@
             }
         }
         catch(Exception $e){
-            echo 'Blad serwera! Przepraszamy za niedogodnosci i prosimy o rejestracje w pozniejszym terminie.';
+            echo 'Server error! We apologize for the inconvenience and please register at a later date.';
             //echo '<br />Informacja developerska: '.$e;
         }   
     }
@@ -93,7 +93,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Personal Budget - Registration</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="registrationn.css">
+    <link rel="stylesheet" href="registration.css">
     <link rel="stylesheet" href="css/fontello.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
