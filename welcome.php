@@ -30,7 +30,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Personal Budget - Sign in</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="log_in.css" type="text/css">
+    <link rel="stylesheet" href="welcome.css" type="text/css">
     <link rel="stylesheet" href="css/fontello.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
@@ -45,13 +45,19 @@
     </header>
     <main>
         <article class="container-fluid">
-            <div>
-            Thank you for your registration! </br>
-             You can now log into your account.
+        <div class="row">
+                <form>
+                    <p>
+                        <h2>Thank you for your registration! </h2></br>
+                    </p>
+                    <p>
+                         <h3>You can now sign in your account. </h3>
+                    </p>
+                    <p>
+                        <a href="index.php"><h5><input type="button" value="Sign in to your account!"></h5></a>
+                    </p>
+                </form>
             </div>
-        <p id="registration">
-            <a href="index.php"><h3>Sign in to your account!</h3></a>
-            </p>
     </main>
     <footer>
         <i class="icon-copyright"></i>
