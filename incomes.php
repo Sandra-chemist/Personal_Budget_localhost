@@ -1,27 +1,17 @@
-<?php
-
-    session_start();
-
-    if(!isset($_SESSION['logged'])){
-        header('Location: index.php');
-        exit();
-    }
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Personal Budget - Main Menu</title>
+    <title>Personal Budget - Add Income</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="menu.css" type="text/css">
+    <link rel="stylesheet" href="incomes.css" type="text/css">
     <link rel="stylesheet" href="css/fontello.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -32,37 +22,31 @@
     <main>
         <article class="container-fluid">
             <header>
-            <div class="row">
-                <p id="user">
-            <?php
-             echo "Hello ".$_SESSION['username']."!";
-            ?>
-            </p>
-            </div>
-                <h2 class="logo">Main menu</h2>
+                <h2 class="logo">Add Income</h2>
             </header>
             <div class="row">
                 <form>
                     <p>
-                        <i class="icon-money"></i>
-                        <a href="incomes.php"><input type="button" value="Add Income"></a>
+                        <label class="amount">Amount <input type="number" placeholder="123" step="0.01" min="0"></label>
                     </p>
                     <p>
-                        <i class="icon-basket"></i>
-                        <a href="expenses.php"><input type="button" value="Add Expense"></a>
+                        <label class="date" for="start">Date </label>
+                        <input type="date" id="start" name="trip-start">
                     </p>
                     <p>
-                        <i class="icon-chart-pie"></i>
-                        <a href="balance.php"><input type="button" value="View Balance"></a>
+                        <label class="category">Category </label>
+                        <select id="income">
+                            <option>salary</option>
+                            <option>bank interest</option>
+                            <option>sale on allegro</option>
+                            <option>other</option>
+                        </select>
                     </p>
                     <p>
-                        <i class="icon-cog"></i>
-                        <input type="submit" value="Settings">
+                        <label class="comment">Comment <input type="text" placeholder="(optional)"></label>
                     </p>
-                    <p>
-                        <i class="icon-logout"></i> 
-                        <a href="logout.php"><input type="button" value="Sign out"></a>
-                    </p>
+                    <input id="add" type="submit" value="Add">
+                    <input type="submit" value="Cancel">
                 </form>
             </div>
         </article>
@@ -75,6 +59,7 @@
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
         crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="personalBudget.js"></script>
 </body>
 
 </html>

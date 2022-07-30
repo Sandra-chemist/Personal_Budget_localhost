@@ -1,0 +1,181 @@
+body{
+    font-family: 'Source Serif Pro', serif;
+    color: indigo;
+}
+h1.logo{
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 3px;
+    margin-top: 80px;
+    margin-bottom: 5px;
+    font-family: 'Libre Bodoni', serif;
+}
+h2.logo{
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 3px;
+    margin-top: 50px;
+}
+h4{
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    font-family: 'Libre Bodoni', serif;
+}
+article{
+  height: 600px;
+  border-width: 3px;
+  border-color: #b180ce;
+  border-style: solid;
+  /* Background pattern from subtlepatterns.com */
+  background-image: url("img/whitediamond.png");
+  padding: 5px;
+}
+.row{
+    width: 450px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+form{
+    background-color: white;
+    height: 390px;
+    padding: 20px;
+    -webkit-box-shadow: 3px 3px 30px 5px #be95c4;
+    -moz-box-shadow: 3px 3px 30px 5px #be95c4;
+    box-shadow: 3px 3px 30px 5px #be95c4;
+}
+input[type=text],
+input[type=number]{
+    width: 300px;
+    height: 48px;
+    background-color: #e0b1cb;
+    color: #563e5a;
+    border: 2px solid #be95c4;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 10px;
+    outline: none;
+    margin-left: 2px;
+    font-family: 'Darker Grotesque', sans-serif;
+}
+#add{
+    margin-left: 10px;
+}
+input[type=submit]{
+    width: 140px;
+    background-color: #9f86c0;
+    font-size: 25px;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    outline: none;
+    font-family: 'Darker Grotesque', sans-serif;
+}
+input[type=date]{
+    height: 48px;
+    width: 150px;
+    font-size: 18px;
+    border: 2px solid #be95c4;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #e0b1cb;
+    color: #563e5a;
+    outline: none;
+    font-family: 'Darker Grotesque', sans-serif;
+}
+input[type=text]:focus,
+input[type=date]:focus,
+input[type=number]:focus{
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+    box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+    border: 2px solid #b180ce;
+    background-color: #cdb4db;
+    color:#9944c9
+}
+input[type=submit]:focus{
+-webkit-box-shadow: 0px 0px 10px 3px #be95c4;
+    -moz-box-shadow: 0px 0px 10px 3px #be95c4;
+    box-shadow: 0px 0px 10px 3px #be95c4;
+}
+input[type=submit]:hover,
+input[type=text]:hover,
+input[type=date]:hover
+{
+    background-color: #cdb4db;
+    border: 2px solid #b180ce;
+}
+input::-webkit-input-placeholder{
+    color: #563e5a;
+}
+input:focus::-webkit-input-placeholder{
+    color: #5e548e;
+}
+input:-moz-placeholder{
+    color: #563e5a;
+}
+input:focus:-moz-placeholder{
+    color:  #5e548e;
+}
+footer{
+    color:#9944c9;
+    font-size: 20px;
+    text-align: center;
+    padding: 15px;
+}
+.category,
+.comment,
+.date,
+.amount{
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 6px;
+    font-family: 'Darker Grotesque', sans-serif;
+}
+.category{
+    margin-top: -10px;
+    margin-bottom: -20px;
+}
+.form-control{
+    font-size: 18px;
+}
+select{
+    height: 48px;
+    width: 190px;
+    font-size: 20px;
+    border: 2px solid #be95c4;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    background-color: #e0b1cb;
+    color: #563e5a;
+    outline: none;
+    font-family: 'Darker Grotesque', sans-serif;
+}
+select:hover{
+    background-color: #cdb4db;
+    border: 2px solid #b180ce;
+}
+select:focus{
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+    box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+    border: 2px solid #b180ce;
+    background-color: #cdb4db;
+    color:#9944c9
+}
+
+   
+
+  
+
+
