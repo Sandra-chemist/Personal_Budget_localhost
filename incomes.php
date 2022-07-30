@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Personal Budget - Add Income</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="incomes.css" type="text/css">
+    <link rel="stylesheet" href="incomess.css" type="text/css">
     <link rel="stylesheet" href="css/fontello.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
@@ -26,14 +26,7 @@
             </header>
             <div class="row">
                 <form>
-                    <p>
-                        <label class="amount">Amount <input type="number" placeholder="123" step="0.01" min="0"></label>
-                    </p>
-                    <p>
-                        <label class="date" for="start">Date </label>
-                        <input type="date" id="start" name="trip-start">
-                    </p>
-                    <p>
+                <p>
                         <label class="category">Category </label>
                         <select id="income">
                             <option>salary</option>
@@ -41,6 +34,13 @@
                             <option>sale on allegro</option>
                             <option>other</option>
                         </select>
+                    </p>
+                    <p>
+                        <label class="amount">Amount <input type="number" placeholder="123" step="0.01" min="0"></label>
+                    </p>
+                    <p>
+                        <label class="date" for="start">Date </label>
+                        <input type="date" id="start" name="trip-start">
                     </p>
                     <p>
                         <label class="comment">Comment <input type="text" placeholder="(optional)"></label>
