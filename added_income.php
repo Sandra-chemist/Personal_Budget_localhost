@@ -1,17 +1,38 @@
+  <?php
+
+    session_start();
+
+    if (!isset($_SESSION['addedincome'])){
+        header('Location: index.php');
+        exit();
+    }
+    else{
+        unset($_SESSION['successfulRegistration']);
+    }
+
+    //Usuwanie zmiennych pamietajacych wartosci wpisane do formularza
+    if (isset($_SESSION['fr_username'])) unset($_SESSION['fr_username']);
+    if (isset($_SESSION['fr_email'])) unset($_SESSION['fr_email']);
+    if (isset($_SESSION['fr_password'])) unset($_SESSION['fr_password']);
+    if (isset($_SESSION['fr_conditions'])) unset($_SESSION['fr_conditions']);
+
+    //Usuwanie bledow 
+    if (isset($_SESSION['e_comment'])) unset($_SESSION['e_comment']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Personal Budget - Add Income</title>
+    <title>Personal Budget - Added Income</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="incomes.css" type="text/css">
+    <link rel="stylesheet" href="added_incomes.css" type="text/css">
     <link rel="stylesheet" href="css/fontello.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -21,35 +42,16 @@
     </header>
     <main>
         <article class="container-fluid">
-            <header>
-                <h2 class="logo">Add Income</h2>
-            </header>
-            <div class="row">
+        <div class="row">
                 <form>
                     <p>
-                        <label class="amount">Amount <input type="number" placeholder="123" step="0.01" min="0"></label>
+                         <h3>You have successfully added income </h3>
                     </p>
                     <p>
-                        <label class="date" for="start">Date </label>
-                        <input type="date" id="start" name="trip-start">
+                        <a href="main_menu.php"><h5><input type="button" value="Main menu"></h5></a>
                     </p>
-                    <p>
-                        <label class="category">Category </label>
-                        <select id="income">
-                            <option>salary</option>
-                            <option>bank interest</option>
-                            <option>sale on allegro</option>
-                            <option>other</option>
-                        </select>
-                    </p>
-                    <p>
-                        <label class="comment">Comment <input type="text" placeholder="(optional)"></label>
-                    </p>
-                    <input id="add" type="submit" value="Add">
-                    <input type="submit" value="Cancel">
                 </form>
             </div>
-        </article>
     </main>
     <footer>
         <i class="icon-copyright"></i>

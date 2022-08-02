@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Personal Budget - Main Menu</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="menu.css" type="text/css">
+    <link rel="stylesheet" href="main_menu.css" type="text/css">
     <link rel="stylesheet" href="css/fontello.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
@@ -45,7 +45,7 @@
                 <form>
                     <p>
                         <i class="icon-money"></i>
-                        <a href="incomes.php"><input type="button" value="Add Income"></a>
+                        <a href="income.php"><input type="button" value="Add Income"></a>
                     </p>
                     <p>
                         <i class="icon-basket"></i>
