@@ -29,7 +29,8 @@
             
             if ($everything_ok == true){
                 //Wszystkie testy zaliczone
-                if ($connection->query("INSERT INTO incomes VALUES (NULL, 1, '$income_category_assigned_to_user_id', ' $amount', ' $amount', ' $income_comment' )")){
+                $id == $user_id;
+                if ($connection->query("INSERT INTO incomes VALUES (NULL, '$user_id', '$income_category_assigned_to_user_id', ' $amount', ' $date_of_income', ' $income_comment' )")){
                     $_SESSION['addedincome'] = true;
                     header('Location: added_income.php');
                 }
@@ -40,7 +41,7 @@
             $connection->close();
             }
         catch(Exception $e){
-            echo 'Blad serwera!';
+            echo 'Server error!';
           //  echo '<br/>Informacja developerska: '.$e;
         }
     }
