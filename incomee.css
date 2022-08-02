@@ -47,7 +47,8 @@ form{
 #add{
     margin-left: 10px;
 }
-input[type=submit]{
+input[type=submit],
+input[type=button]{
     width: 150px;
     background-color: #9f86c0;
     font-size: 25px;
@@ -76,10 +77,13 @@ input[type=text]{
     font-family: 'Darker Grotesque', sans-serif;
 }
 input[type=date]{
-    margin-right: -35px;
+    margin-right: -37px;
 }
 input[type=number]{
-    margin-right: -20px;
+    margin-right: -12px;
+}
+input[type=text]{
+    margin-right: 7px;
 }
 input[type=text]:focus,
 input[type=date]:focus,
@@ -91,12 +95,14 @@ input[type=number]:focus{
     background-color: #cdb4db;
     color:#9944c9
 }
-input[type=submit]:focus{
+input[type=submit]:focus
+input[type=button]:focus{
 -webkit-box-shadow: 0px 0px 10px 3px #be95c4;
     -moz-box-shadow: 0px 0px 10px 3px #be95c4;
     box-shadow: 0px 0px 10px 3px #be95c4;
 }
 input[type=submit]:hover,
+input[type=button]:hover,
 input[type=text]:hover,
 input[type=date]:hover
 {
@@ -121,16 +127,16 @@ footer{
     text-align: center;
     padding: 15px;
 }
-.category,
+.categories,
 .comment,
 .date,
 .amount{
     font-size: 24px;
     font-weight: bold;
-    margin-right: 6px;
+    padding: 10px;
     font-family: 'Darker Grotesque', sans-serif;
 }
-.category{
+.categories{
     margin-top: -10px;
     margin-bottom: -20px;
 }
@@ -157,6 +163,12 @@ select:focus{
     border: 2px solid #b180ce;
     background-color: #cdb4db;
     color:#9944c9
+}
+.error{
+    color: rgb(223, 5, 5);
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 20px;
+    margin-top: -5px;
 }
 
    

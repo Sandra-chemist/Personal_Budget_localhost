@@ -73,6 +73,7 @@ input[type=button]:focus{
 input[type=submit]:hover,
 input[type=button]:hover{
     background-color: #cdb4db;
+    border: 2px solid #b180ce;
 }
 footer{
     color:#9944c9;

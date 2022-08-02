@@ -1,0 +1,80 @@
+h1.logo{
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 3px;
+    margin-top: 40px;
+    margin-bottom: 5px;
+    color: indigo;
+    font-family: 'Libre Bodoni', serif;
+}
+h3{
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 3px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: indigo;
+    font-family: 'Darker Grotesque', sans-serif;
+}
+h4{
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    font-family: 'Libre Bodoni', serif;
+    color: indigo;
+}
+article{
+  height: 750px;
+  border-width: 3px;
+  border-color: #b180ce;
+  border-style: solid;
+  /* Background pattern from subtlepatterns.com */
+  background-image: url("img/whitediamond.png");
+  padding: 5px;
+}
+.row{
+    width: 400px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+form{
+    height: 420px;
+    padding: 20px;
+   /* -webkit-box-shadow: 3px 3px 30px 5px #be95c4;
+    -moz-box-shadow: 3px 3px 30px 5px #be95c4;
+    box-shadow: 3px 3px 30px 5px #be95c4;*/
+}
+input[type=button]{
+    width: 200px;
+    height: 80px;
+    background-color: #9f86c0;
+    font-size: 25px;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    outline: none;
+    font-family: 'Darker Grotesque', sans-serif;
+}
+input[type=button]:focus{
+-webkit-box-shadow: 0px 0px 10px 3px #be95c4;
+    -moz-box-shadow: 0px 0px 10px 3px #be95c4;
+    box-shadow: 0px 0px 10px 3px #be95c4;
+}
+input[type=button]:hover{
+    background-color: #cdb4db;
+    border: 2px solid #b180ce;
+}
+footer{
+    color:#9944c9;
+    font-size: 20px;
+    text-align: center;
+    padding: 15px;
+}
+
