@@ -6,7 +6,7 @@ h1.logo{
     font-weight: 700;
     text-align: center;
     letter-spacing: 3px;
-    margin-top: 80px;
+    margin-top: 40px;
     margin-bottom: 5px;
     color: indigo;
     font-family: 'Libre Bodoni', serif;
@@ -35,19 +35,20 @@ h4{
     color: indigo;
 }
 h5{
-    font-size: 15px;
+    font-size: 18px;
     color: #5e548e;
     padding: 25px;
 }
 article{
-  height: 600px;
-  border-width: 3px;
-  border-color: #b180ce;
-  border-style: solid;
-  /* Background pattern from subtlepatterns.com */
-  background-image: url("img/whitediamond.png");
-  padding: 5px;
-}
+    height: 700px;
+    border-top-width: 6px;
+    border-bottom-width: 6px;
+    border-color: #b68bcf;
+    border-style: groove;
+    /* Background pattern from subtlepatterns.com */
+    background-image: url("img/whitediamond.png");
+    padding: 5px;
+  }
 .row{
     width: 400px;
     text-align: center;
@@ -105,10 +106,12 @@ input[type=button]:focus{
 }
 p.remember{
     color: #5e548e;
+    font-size: 17px;
 }
 input[type=submit]:hover,
 input[type=button]:hover{
     background-color: #cdb4db;
+    border: 2px solid #b180ce;
 }
 input::-webkit-input-placeholder{
     color: #563e5a;
@@ -163,7 +166,7 @@ footer{
 input[type=button]{
     background-color: #9f86c0;
     width: 200px;
-    height: 50px;
+    height: 60px;
     color: white;
     border: none;
     border-radius: 5px;

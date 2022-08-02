@@ -18,7 +18,6 @@
             $_SESSION['e_income_comment'] = "The maximum length of a comment is 100 characters!";
         }
 
-
         require_once "connect.php";
         mysqli_report(MYSQLI_REPORT_STRICT);
 
@@ -55,7 +54,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Personal Budget - Add Income</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="incomee.css" type="text/css">
+    <link rel="stylesheet" href="income.css" type="text/css">
     <link rel="stylesheet" href="css/fontello.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
@@ -87,13 +86,6 @@
                     <p>
                         <label class="amount">Amount </label> 
                         <input type="number" name="amount" placeholder="123" step="0.01" min="0">
-                        <?php
-
-                            if (isset($_SESSION['e_amount'])){
-                                echo '<div class="error">'.$_SESSION['e_amount'].'</div>';
-                                unset($_SESSION['e_amount']);
-                            }
-                        ?>
                     </p>
                     <p>
                         <label class="date" for="start">Date </label> 
@@ -103,9 +95,8 @@
                         <label class="comment">Comment </label>
                         <input type="text"  name="comment" placeholder="(optional)">
                         <?php
-
-                            if (isset($_SESSION['e_comment'])){
-                                echo '<div class="error">'.$_SESSION['e_comment'].'</div>';
+                            if (isset($_SESSION['e_income_comment'])){
+                                echo '<div class="error">'.$_SESSION['e_income_comment'].'</div>';
                                 unset($_SESSION['e_income_comment']);
                             }
                         ?>

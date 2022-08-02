@@ -45,7 +45,7 @@
                 <form>
                     <p>
                         <i class="icon-money"></i>
-                        <a href="incomes.php"><input type="button" value="Add Income"></a>
+                        <a href="income.php"><input type="button" value="Add Income"></a>
                     </p>
                     <p>
                         <i class="icon-basket"></i>

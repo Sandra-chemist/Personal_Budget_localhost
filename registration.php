@@ -180,6 +180,7 @@
                             }
                         ?>
                     <input type="submit" value="Register">
+                    <a href="index.php"><input type="button" value="Cancel"></a>  
                 </form>
             </div>
         </article>
