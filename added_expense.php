@@ -2,7 +2,7 @@
 
     session_start();
 
-    if (!isset($_SESSION['addedincome'])){
+    if (!isset($_SESSION['addedexpense'])){
         header('Location: index.php');
         exit();
     }
@@ -45,7 +45,7 @@
         <div class="row">
                 <form>
                     <p>
-                         <h3>You have successfully added income </h3>
+                         <h3>You have successfully added expense </h3>
                     </p>
                     <p>
                         <a href="main_menu.php"><h5><input type="button" value="Main menu"></h5></a>

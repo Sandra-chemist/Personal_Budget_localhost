@@ -7,8 +7,9 @@ h1.logo{
     font-weight: 700;
     text-align: center;
     letter-spacing: 3px;
-    margin-top: 80px;
+    margin-top: 40px;
     margin-bottom: 5px;
+    color: indigo;
     font-family: 'Libre Bodoni', serif;
 }
 h2.logo{
@@ -16,25 +17,33 @@ h2.logo{
     font-weight: 500;
     text-align: center;
     letter-spacing: 3px;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 70px;
+    margin-bottom: 15px;
+    color: indigo;
 }
 h4{
     font-size: 20px;
     font-weight: 400;
     text-align: center;
     font-family: 'Libre Bodoni', serif;
+    color: indigo;
 }
 article{
-    height: 700px;
-    border-top-width: 6px;
-    border-bottom-width: 6px;
-    border-color: #b68bcf;
-    border-style: groove;
-    /* Background pattern from subtlepatterns.com */
-    background-image: url("img/whitediamond.png");
-    padding: 5px;
-  }
+  height: 700px;
+  border-top-width: 6px;
+  border-bottom-width: 6px;
+  border-color: #b68bcf;
+  border-style: groove;
+  /* Background pattern from subtlepatterns.com */
+  background-image: url("img/whitediamond.png");
+  padding: 5px;
+}
+.row{
+    width: 420px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 .row{
     width: 450px;
     text-align: center;
