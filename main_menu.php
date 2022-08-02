@@ -49,7 +49,7 @@
                     </p>
                     <p>
                         <i class="icon-basket"></i>
-                        <a href="expenses.php"><input type="button" value="Add Expense"></a>
+                        <a href="expense.php"><input type="button" value="Add Expense"></a>
                     </p>
                     <p>
                         <i class="icon-chart-pie"></i>
