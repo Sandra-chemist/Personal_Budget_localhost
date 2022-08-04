@@ -26,14 +26,15 @@ h4{
     color: indigo;
 }
 article{
-  height: 600px;
-  border-width: 3px;
-  border-color: #b180ce;
-  border-style: solid;
-  /* Background pattern from subtlepatterns.com */
-  background-image: url("img/whitediamond.png");
-  padding: 5px;
-}
+    height: 700px;
+    border-top-width: 6px;
+    border-bottom-width: 6px;
+    border-color: #b68bcf;
+    border-style: groove;
+    /* Background pattern from subtlepatterns.com */
+    background-image: url("img/whitediamond.png");
+    padding: 5px;
+  }
 .row{
     width: 400px;
     text-align: center;

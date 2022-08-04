@@ -20,7 +20,7 @@
 
         require_once "connect.php";
         mysqli_report(MYSQLI_REPORT_STRICT);
-
+    
         try{
             $connection = new mysqli($host, $db_user, $db_password, $db_name); 
             if ($connection->connect_errno!=0){
@@ -29,7 +29,6 @@
             
             if ($everything_ok == true){
                 //Wszystkie testy zaliczone
-                $id == $user_id;
                 if ($connection->query("INSERT INTO incomes VALUES (NULL, '$user_id', '$income_category_assigned_to_user_id', ' $amount', ' $date_of_income', ' $income_comment' )")){
                     $_SESSION['addedincome'] = true;
                     header('Location: added_income.php');

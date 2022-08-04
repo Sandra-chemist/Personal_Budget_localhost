@@ -7,8 +7,9 @@ h1.logo{
     font-weight: 700;
     text-align: center;
     letter-spacing: 3px;
-    margin-top: 80px;
+    margin-top: 40px;
     margin-bottom: 5px;
+    color: indigo;
     font-family: 'Libre Bodoni', serif;
 }
 h2.logo{
@@ -16,23 +17,32 @@ h2.logo{
     font-weight: 500;
     text-align: center;
     letter-spacing: 3px;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 70px;
+    margin-bottom: 15px;
+    color: indigo;
 }
 h4{
     font-size: 20px;
     font-weight: 400;
     text-align: center;
     font-family: 'Libre Bodoni', serif;
+    color: indigo;
 }
 article{
-  height: 600px;
-  border-width: 3px;
-  border-color: #b180ce;
-  border-style: solid;
+  height: 700px;
+  border-top-width: 6px;
+  border-bottom-width: 6px;
+  border-color: #b68bcf;
+  border-style: groove;
   /* Background pattern from subtlepatterns.com */
   background-image: url("img/whitediamond.png");
   padding: 5px;
+}
+.row{
+    width: 420px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 .row{
     width: 450px;
@@ -42,12 +52,8 @@ article{
     margin-top: 30px;
 }
 form{
-    background-color: white;
     height: 440px;
     padding: 20px;
-    -webkit-box-shadow: 3px 3px 30px 5px #be95c4;
-    -moz-box-shadow: 3px 3px 30px 5px #be95c4;
-    box-shadow: 3px 3px 30px 5px #be95c4;
 }
 input[type=text],
 input[type=number]{
@@ -66,7 +72,8 @@ input[type=number]{
 #add{
     margin-left: 10px;
 }
-input[type=submit]{
+input[type=submit],
+input[type=button]{
     width: 140px;
     background-color: #9f86c0;
     font-size: 25px;
@@ -102,14 +109,16 @@ input[type=number]:focus{
     background-color: #cdb4db;
     color:#9944c9
 }
-input[type=submit]:focus{
+input[type=submit]:focus,
+input[type=button]:focus{
     -webkit-box-shadow: 0px 0px 10px 3px #be95c4;
     -moz-box-shadow: 0px 0px 10px 3px #be95c4;
     box-shadow: 0px 0px 10px 3px #be95c4;
 }
 input[type=submit]:hover,
 input[type=text]:hover,
-input[type=date]:hover
+input[type=date]:hover,
+input[type=button]:hover
 {
     background-color: #cdb4db;
     border: 2px solid #b180ce;
@@ -180,7 +189,12 @@ input[type=radio]{
     margin-right: 2px;
     position: relative;
   }
-
+  .error{
+    color: rgb(223, 5, 5);
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 20px;
+    margin-top: 5px;
+}
    
 
   
