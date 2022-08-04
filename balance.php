@@ -32,7 +32,7 @@
                             <option>select period</option>
                         </select>
                     </p>
-                    <input type="submit" value="Back to main menu">
+                    <a href="main_menu.php"><input type="button" value="Back to main menu"></a>  
                 </form>
             </div>
             <div class="row">
