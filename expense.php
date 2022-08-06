@@ -29,6 +29,7 @@
             }
             
             if ($everything_ok == true){
+                $user_id = $_SESSION['id'];
                 //Wszystkie testy zaliczone
                 if ($connection->query("INSERT INTO expenses VALUES (NULL, '$user_id', '$expense_category_assigned_to_user_id', '$payment_method_assigned_to_user_id', ' $amount', ' $date_of_expense', ' $expense_comment' )")){
                     $_SESSION['addedexpense'] = true;
