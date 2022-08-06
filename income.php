@@ -27,7 +27,7 @@
             }
             
             if ($everything_ok == true){
-               
+               $user_id = $_SESSION['id'];
                 //Wszystkie testy zaliczone
                 if ($connection->query("INSERT INTO incomes VALUES (NULL, '$user_id', '$income_category_assigned_to_user_id', ' $amount', ' $date_of_income', ' $income_comment' )")){
                     $_SESSION['addedincome'] = true;
