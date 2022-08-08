@@ -81,9 +81,23 @@ input[type=email]:focus{
     background-color: #cdb4db;
     color:#9944c9
 }
-input[type=submit],
+input[type=submit]{
+    width: 170px;
+    background-color: #9f86c0;
+    font-size: 25px;
+    color: white;
+    padding-top: 5px;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    outline: none;
+    font-family: 'Darker Grotesque', sans-serif;
+}
 input[type=button]{
-    width: 140px;
+    width: 130px;
     background-color: #9f86c0;
     font-size: 25px;
     color: white;

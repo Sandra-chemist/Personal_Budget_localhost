@@ -6,7 +6,7 @@
     {
         //Udana walidacja
         $everything_ok = true;
-        $income_category_assigned_to_user_id = $_POST['category'];
+       // $income_category_assigned_to_user_id = $_POST['category'];
         $amount = $_POST['amount'];
         $date_of_income = $_POST['date'];
       
@@ -19,7 +19,8 @@
 
         require_once "connect.php";
         mysqli_report(MYSQLI_REPORT_STRICT);
-    
+
+      
         try{
             $connection = new mysqli($host, $db_user, $db_password, $db_name); 
             if ($connection->connect_errno!=0){
@@ -28,8 +29,10 @@
             
             if ($everything_ok == true){
                $user_id = $_SESSION['id'];
+               $id = $_POST['category'];
+               $income_category_assigned_to_user_id = $id;     
                 //Wszystkie testy zaliczone
-                if ($connection->query("INSERT INTO incomes VALUES (NULL, '$user_id', '$income_category_assigned_to_user_id', ' $amount', ' $date_of_income', ' $income_comment' )")){
+                if ($connection->query("INSERT INTO incomes VALUES (NULL, '$user_id', '$income_category_assigned_to_user_id', '$amount', '$date_of_income', '$income_comment' )")){
                     $_SESSION['addedincome'] = true;
                     header('Location: added_income.php');
                 }
@@ -64,36 +67,36 @@
 
 <body>
     <header>
-        <h1 class="logo">Personal Budget</h1>
-        <h4> Your Finance Manager </h4>
+        <h1 class="logo">Budżet Osobisty</h1>
+        <h4> Twój Menedżer Finansów </h4>
     </header>
     <main>
         <article class="container-fluid">
             <header>
-                <h2 class="logo">Add Income</h2>
+                <h2 class="logo">Dodaj Przychód</h2>
             </header>
             <div class="row">
-                <form method = "post">
+                <form method ="post">
                 <p>
-                        <label class="categories">Category </label>
+                        <label class="categories">Kategoria </label>
                         <select id="income" name ="category">
-                            <option>salary</option>
-                            <option>bank interest</option>
-                            <option>sale on allegro</option>
-                            <option>other</option>
+                            <option value="1">pensja</option>
+                            <option value="2">odsetki bankowe</option>
+                            <option value="3">sprzedaż na allegro</option>
+                            <option value="4">inna</option>
                         </select>
                     </p>
                     <p>
-                        <label class="amount">Amount </label> 
+                        <label class="amount">Kwota </label> 
                         <input type="number" name="amount" placeholder="123" step="0.01" min="0">
                     </p>
                     <p>
-                        <label class="date" for="start">Date </label> 
+                        <label class="date" for="start">Data </label> 
                         <input type="date" id="start" name="date">
                     </p>
                     <p>
-                        <label class="comment">Comment </label>
-                        <input type="text"  name="comment" placeholder="(optional)">
+                        <label class="comment">Komentarz </label>
+                        <input type="text"  name="comment" placeholder="(opcjonalnie)">
                         <?php
                             if (isset($_SESSION['e_income_comment'])){
                                 echo '<div class="error">'.$_SESSION['e_income_comment'].'</div>';
@@ -101,8 +104,8 @@
                             }
                         ?>
                     </p>
-                    <input id="add" type="submit" value="Add">
-                    <a href="main_menu.php"><input type="button" value="Cancel"></a>  
+                    <input id="add" type="submit" name="submit" value="Dodaj">
+                    <a href="main_menu.php"><input type="button" value="Anuluj"></a>  
                 </form>
             </div>
         </article>

@@ -56,11 +56,9 @@
                 //czy email juz istnieje?
                 $email = $_POST['email'];
                 $result = $connection->query("SELECT id FROM users WHERE email='$email'");
-				
 				if (!$result) throw new Exception($connection->error);
 				
 				$how_many_email = $result->num_rows;
-
                 if($how_many_email>0)
 				{
 					$all_ok=false;
@@ -69,8 +67,9 @@
                 if ($all_ok == true){
                     //Wszystkie testy zaliczone, dodajemy do bazy
                     if ($connection->query("INSERT INTO users VALUES (NULL, '$username','$password_hash', '$email')")){
-                        $_SESSION['successfulRegistration'] = true;
+                        $_SESSION['successfulRegistration'] = true;  
                         header('Location: welcome.php');
+                        $connection->query("INSERT INTO incomes_category_assigned_to_users (id, user_id, name) SELECT incomes_category_default.id, users.id, incomes_category_default.name FROM incomes_category_default, users WHERE email='$email'");
                     }
                     else{
                         throw new Exception($connection->error);
@@ -104,20 +103,20 @@
 
 <body>
     <header>
-        <h1 class="logo">Personal Budget</h1>
-        <h4> Your Finance Manager </h4>
+        <h1 class="logo">Budżet Osobisty</h1>
+        <h4> Twój Menedżer Finansów</h4>
     </header>
     <main>
         <article class="container-fluid">
             <header>
-                <h2 class="logo">Registration</h2>
-                <h3>Create a new account!</h3>
+                <h2 class="logo">Rejestracja</h2>
+                <h3>Utwórz nowe konto!</h3>
             </header>
             <div class="row">
                 <form method="post">
                     <p>
                         <i class="icon-user-2"></i>
-                        <input type="text" placeholder="Username"  value = "<?php
+                        <input type="text" placeholder="Imię"  value = "<?php
                         if (isset($_SESSION['fr_username'])){
                             echo $_SESSION['fr_username'];
                             unset($_SESSION['fr_username']);
@@ -146,7 +145,7 @@
                             echo $_SESSION['fr_password'];
                             unset($_SESSION['fr_password']);
                         }
-                        ?>" name="password" id="password" placeholder="Password">
+                        ?>" name="password" id="password" placeholder="Hasło">
                         <i id="hider" onclick="showhide()"></i>
                         <?php
                             if (isset($_SESSION['e_password'])){
@@ -163,7 +162,7 @@
                                 echo "checked";
                                 unset($_SESSION['fr_conditions']);
                             }
-                                ?>/> I accept the terms and conditions
+                                ?>/> Akceptuję regulamin
                         </label>
                      <?php
                             if (isset($_SESSION['e_conditions'])){
@@ -179,8 +178,8 @@
                                 unset($_SESSION['e_bot']);
                             }
                         ?>
-                    <input type="submit" value="Register">
-                    <a href="index.php"><input type="button" value="Cancel"></a>  
+                    <input type="submit" value="Zarejestruj się!">
+                    <a href="index.php"><input type="button" value="Anuluj"></a>  
                 </form>
             </div>
         </article>

@@ -39,17 +39,10 @@ article{
   padding: 5px;
 }
 .row{
-    width: 420px;
+    width: 560px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-}
-.row{
-    width: 450px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
 }
 form{
     height: 440px;
@@ -89,7 +82,7 @@ input[type=button]{
 }
 input[type=date]{
     height: 48px;
-    width: 150px;
+    width: 170px;
     font-size: 18px;
     border: 2px solid #be95c4;
     border-radius: 5px;
@@ -194,6 +187,18 @@ input[type=radio]{
     font-family: 'Darker Grotesque', sans-serif;
     font-size: 20px;
     margin-top: 5px;
+}
+input[type=date]{
+    margin-right: -165px;
+}
+input[type=number]{
+    margin-right: -32px;
+}
+input[type=text]{
+    margin-right: 7px;
+}
+#expense{
+    margin-right: -95px;
 }
    
 

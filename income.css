@@ -81,10 +81,10 @@ input[type=text]{
     font-family: 'Darker Grotesque', sans-serif;
 }
 input[type=date]{
-    margin-right: -37px;
+    margin-right: -45px;
 }
 input[type=number]{
-    margin-right: -12px;
+    margin-right: -32px;
 }
 input[type=text]{
     margin-right: 7px;

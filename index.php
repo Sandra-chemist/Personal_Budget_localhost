@@ -8,7 +8,7 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <meta charset="utf-8" />
@@ -25,18 +25,18 @@
 
 <body>
     <header>
-        <h1 class="logo">Personal Budget</h1>
-        <h4> Your Finance Manager </h4>
+        <h1 class="logo">Budżet Osobisty</h1>
+        <h4> Twój Menedżer Finansów </h4>
     </header>
     <main>
         <article class="container-fluid">
         <div class="row">
             <p>
-            <a href="registration.php"><h3><input type="button" value="Free registration!"></h3></a>
+            <a href="registration.php"><h3><input type="button" value="Darmowa rejestracja!"></h3></a>
             </p>
 </div>
             <header>
-                <h2 class="logo">Sign in</h2>
+                <h2 class="logo">Zaloguj się</h2>
             </header>
             <div class="row">
                 <form action="signIn.php" method="post">
@@ -46,15 +46,15 @@
                     </p>
                     <p>
                         <i class="icon-lock"></i>
-                        <input type="password" placeholder="Password" id="password" name="password">
+                        <input type="password" placeholder="Hasło" id="password" name="password">
                         <i id="hider" onclick="showhide()"></i>
                     </p>
                     <p class="remember">
                         <input type="checkbox" id="Remember" name="Remember">
-                        <label for="Remember">Remember me</label>
+                        <label for="Remember">Zapamiętaj mnie</label>
                     </p>
-                    <input type="submit" value="Sign in">
-                    <h5>Forgot password?</h5>
+                    <input type="submit" value="Zaloguj się">
+                    <h5>Zapomniałeś hasła?</h5>
                 </form>
                 <p id="mistake">
                 <?php

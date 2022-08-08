@@ -36,14 +36,15 @@ h4{
     color: indigo;
 }
 article{
-  height: 750px;
-  border-width: 3px;
-  border-color: #b180ce;
-  border-style: solid;
-  /* Background pattern from subtlepatterns.com */
-  background-image: url("img/whitediamond.png");
-  padding: 5px;
-}
+    height: 700px;
+    border-top-width: 6px;
+    border-bottom-width: 6px;
+    border-color: #b68bcf;
+    border-style: groove;
+    /* Background pattern from subtlepatterns.com */
+    background-image: url("img/whitediamond.png");
+    padding: 5px;
+  }
 .row{
     width: 400px;
     text-align: center;
@@ -58,7 +59,7 @@ form{
     box-shadow: 3px 3px 30px 5px #be95c4;*/
 }
 input[type=button]{
-    width: 300px;
+    width: 320px;
     height: 80px;
     background-color: #9f86c0;
     font-size: 25px;
@@ -79,6 +80,7 @@ input[type=button]:focus{
 }
 input[type=button]:hover{
     background-color: #cdb4db;
+    border: 2px solid #b180ce;
 }
 footer{
     color:#9944c9;

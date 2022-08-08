@@ -37,18 +37,18 @@
 
 <body>
     <header>
-        <h1 class="logo">Personal Budget</h1>
-        <h4> Your Finance Manager </h4>
+        <h1 class="logo">Budżet Osobisty</h1>
+        <h4> Twój Menedżer Finansów </h4>
     </header>
     <main>
         <article class="container-fluid">
         <div class="row">
                 <form>
                     <p>
-                         <h3>You have successfully added expense </h3>
+                         <h3>Dodałeś wydatek! </h3>
                     </p>
                     <p>
-                        <a href="main_menu.php"><h5><input type="button" value="Main menu"></h5></a>
+                        <a href="main_menu.php"><h5><input type="button" value="Menu główne"></h5></a>
                     </p>
                 </form>
             </div>

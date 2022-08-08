@@ -1,3 +1,48 @@
+<?php
+
+    session_start();
+
+    if(!isset($_SESSION['logged'])){
+        header('Location: index.php');
+        exit();
+    }
+
+    require_once "connect.php";
+    mysqli_report(MYSQLI_REPORT_STRICT);
+    try{
+        $connection = new mysqli($host, $db_user, $db_password, $db_name); 
+        if($connection->connect_errno!=0){
+           throw new Exception(mysqli_connect_errno());
+        }
+        else{
+            if($result = $connection->query("SELECT 'username', 'email' FROM users"))
+            {
+                $number_of_rows=$result->num_rows;
+                 
+                if($number_of_rows>0)
+                {
+                    $row=$result->fetch_assoc();
+                }
+                else
+                {
+                    throw new Exception($connection->error);
+                }
+            }	
+            
+                else{
+                    throw new Exception($connection->error);
+                }
+            }
+            $connection->close();
+        }
+    catch(Exception $e){
+        echo 'Server error! We apologize for the inconvenience and please register at a later date.';
+        //echo '<br />Informacja developerska: '.$e;
+    }   
+
+     $connection = new mysqli($host, $db_user, $db_password, $db_name); 
+        
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,30 +60,30 @@
 
 <body>
     <header>
-        <h1 class="logo">Personal Budget</h1>
-        <h4> Your Finance Manager </h4>
+        <h1 class="logo">Budżet Osobisty</h1>
+        <h4> Twój Menedżer Finansów </h4>
     </header>
     <main>
         <article class="container-fluid">
-            <h2 class="logo">View Balance</h2>
+            <h2 class="logo">Przeglądaj bilans</h2>
             <div class="row">
                 <form>
                     <p>
-                        <label class="category">Select period of time </label>
+                        <label class="category">Wybierz okres czasu </label>
                         <select id="expense">
-                            <option>current month</option>
-                            <option>previous month</option>
-                            <option>current year</option>
-                            <option>select period</option>
+                            <option>obecny miesiąc</option>
+                            <option>poprzedni miesiąc</option>
+                            <option>obecny rok</option>
+                            <option>wybrany okres czasu</option>
                         </select>
                     </p>
-                    <a href="main_menu.php"><input type="button" value="Back to main menu"></a>  
+                    <a href="main_menu.php"><input type="button" value="Powrót do menu głównego"></a>  
                 </form>
             </div>
             <div class="row">
                 <section class="col-xl-6 col-xxl-4 offset-xxl-2">
                     <header>
-                        <h3>Incomes</h3>
+                        <h3>Przychód</h3>
                     </header>
                     <table>
                         <thead>
@@ -74,7 +119,7 @@
                 </section>
                 <section class="col-xl-6 col-xxl-4">
                     <header>
-                        <h3>Expenses</h3>
+                        <h3>Wydatki</h3>
                     </header>
                     <table>
                         <thead>

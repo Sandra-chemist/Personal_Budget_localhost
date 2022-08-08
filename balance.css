@@ -7,9 +7,10 @@ h1.logo{
     font-weight: 700;
     text-align: center;
     letter-spacing: 3px;
-    margin-top: 80px;
+    margin-top: 40px;
     margin-bottom: 5px;
-    font-family: 'Libre Bodoni', serif !important;
+    color: indigo;
+    font-family: 'Libre Bodoni', serif;
 }
 h2.logo{
     font-size: 40px;
@@ -29,17 +30,19 @@ h4{
     font-size: 20px;
     font-weight: 400;
     text-align: center;
-    font-family: 'Libre Bodoni', serif !important;
+    font-family: 'Libre Bodoni', serif;
+    color: indigo;
 }
 article{
     height: auto;
-    border-width: 3px;
-    border-color: #b180ce;
-    border-style: solid;
+    border-top-width: 6px;
+    border-bottom-width: 6px;
+    border-color: #b68bcf;
+    border-style: groove;
     /* Background pattern from subtlepatterns.com */
     background-image: url("img/whitediamond.png");
     padding: 5px;
-}
+  }
 .row{
    /* background-color: #99949b;*/
     text-align: center;
@@ -54,12 +57,9 @@ form{
     padding: 20px;
     margin-left: auto;
     margin-right: auto;
-    -webkit-box-shadow: 3px 3px 30px 5px #be95c4;
-    -moz-box-shadow: 3px 3px 30px 5px #be95c4;
-    box-shadow: 3px 3px 30px 5px #be95c4;
 }
 input[type=button]{
-    width: 250px;
+    width: 290px;
     background-color: #9f86c0;
     font-size: 25px;
     color: white;

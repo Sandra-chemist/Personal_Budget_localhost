@@ -26,8 +26,8 @@
 
 <body>
     <header>
-        <h1 class="logo">Personal Budget</h1>
-        <h4> Your Finance Manager </h4>
+        <h1 class="logo">Budżet Osobisty</h1>
+        <h4> Twój Menedżer Finansów </h4>
     </header>
     <main>
         <article class="container-fluid">
@@ -35,33 +35,33 @@
             <div class="row">
                 <p id="user">
             <?php
-             echo "Hello ".$_SESSION['username']."!";
+             echo "Witaj ".$_SESSION['username']."!";
             ?>
             </p>
             </div>
-                <h2 class="logo">Main menu</h2>
+                <h2 class="logo">Menu główne</h2>
             </header>
             <div class="row">
                 <form>
                     <p>
                         <i class="icon-money"></i>
-                        <a href="income.php"><input type="button" value="Add Income"></a>
+                        <a href="income.php"><input type="button" value="Dodaj przychód"></a>
                     </p>
                     <p>
                         <i class="icon-basket"></i>
-                        <a href="expense.php"><input type="button" value="Add Expense"></a>
+                        <a href="expense.php"><input type="button" value="Dodaj wydatek"></a>
                     </p>
                     <p>
                         <i class="icon-chart-pie"></i>
-                        <a href="balance.php"><input type="button" value="View Balance"></a>
+                        <a href="balance.php"><input type="button" value="Przeglądaj bilans"></a>
                     </p>
                     <p>
                         <i class="icon-cog"></i>
-                        <input type="submit" value="Settings">
+                        <input type="submit" value="Ustawienia">
                     </p>
                     <p>
                         <i class="icon-logout"></i> 
-                        <a href="logout.php"><input type="button" value="Sign out"></a>
+                        <a href="logout.php"><input type="button" value="Wyloguj się"></a>
                     </p>
                 </form>
             </div>
