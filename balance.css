@@ -44,15 +44,12 @@ article{
     padding: 5px;
   }
 .row{
-   /* background-color: #99949b;*/
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
 }
 form{
-    width: 450px !important;
-    background-color: white;
     height: 180px;
     padding: 20px;
     margin-left: auto;
@@ -130,13 +127,13 @@ select:focus{
     background-color: #cdb4db;
     color:#9944c9
 }
-.column,
 .total{
     text-align: center;
     border: 2px solid #b180ce;
-    height: 50px;
+    height: 80px;
+    padding: 20px;
     font-weight: bold;
-    font-size: 26px;
+    font-size: 25px;
     background-color: #b8a0d8;
 }
 .piechart1,
@@ -160,18 +157,29 @@ section{
     font-family: 'Darker Grotesque', sans-serif;
 }
 table{
-    border: 2px solid #b180ce;
-    -webkit-box-shadow: 3px 3px 20px 3px #be95c4;
-    -moz-box-shadow: 3px 3px 20px 3px #be95c4;
-    box-shadow: 3px 3px 20px 3px #be95c4;
-    width: 420px;
+    width: 450px;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
+    text-align: left;
+    padding: 10px;
 }
 td{
     padding: 5px;
-    font-size: 24px;
+    font-size: 20px;
+}
+#incomes,
+#expenses{
+    text-align: center;
+    border: 2px solid #b180ce;
+    height: 80px;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 35px;
+    background-color: #b8a0d8;
+}
+.cat{
+    font-size: 25px;
+    text-align: center;
 }
 
   

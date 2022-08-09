@@ -6,42 +6,35 @@
         header('Location: index.php');
         exit();
     }
-
+    $email = $_SESSION['email'];
     require_once "connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
-    try{
-        $connection = new mysqli($host, $db_user, $db_password, $db_name); 
-        if($connection->connect_errno!=0){
-           throw new Exception(mysqli_connect_errno());
-        }
-        else{
-            if($result = $connection->query("SELECT 'username', 'email' FROM users"))
-            {
-                $number_of_rows=$result->num_rows;
-                 
-                if($number_of_rows>0)
-                {
-                    $row=$result->fetch_assoc();
-                }
-                else
-                {
-                    throw new Exception($connection->error);
-                }
-            }	
-            
-                else{
-                    throw new Exception($connection->error);
-                }
-            }
-            $connection->close();
-        }
-    catch(Exception $e){
-        echo 'Server error! We apologize for the inconvenience and please register at a later date.';
-        //echo '<br />Informacja developerska: '.$e;
-    }   
+    $connection = new mysqli($host, $db_user, $db_password, $db_name);
+    $user_id = $_SESSION['id'];
 
-     $connection = new mysqli($host, $db_user, $db_password, $db_name); 
-        
+    $result_1 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1"); 
+    $result_2 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 2"); 
+    $result_3 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 3"); 
+    $result_4 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 4");
+    
+    $result_1e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 1"); 
+    $result_2e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 2"); 
+    $result_3e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 3"); 
+    $result_4e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 4");
+    $result_5e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 5"); 
+    $result_6e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 6"); 
+    $result_7e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 7"); 
+    $result_8e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 8");
+    $result_9e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 9"); 
+    $result_10e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 10"); 
+    $result_11e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 11"); 
+    $result_12e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 12");
+    $result_13e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 13"); 
+    $result_14e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 14"); 
+    $result_15e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 15"); 
+    $result_16e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 16");
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,32 +75,91 @@
             </div>
             <div class="row">
                 <section class="col-xl-6 col-xxl-4 offset-xxl-2">
-                    <header>
-                        <h3>Przychód</h3>
-                    </header>
                     <table>
                         <thead>
-                            <tr class="column">
-                                <th>category</th>
-                                <th>amount</th>
+                            <tr >
+                                <header>
+                               <h3 id="incomes"> Przychody </h3>
+                                </header>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>salary</td>
-                                <td></td>
+                                <td class="cat">Pensja</td>  
+                                <td>
+                                <?php
+                        if($result_1->num_rows > 0){
+                            while($row = $result_1->fetch_assoc()){
+                               // echo "user_id: ".$row['user_id'];
+                              //  echo " category_id: ".$row['income_category_assigned_to_user_id'];
+                              echo $row['date_of_income']." ";  
+                              echo $row['amount']." ";
+                              echo $row['income_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
                             </tr>
                             <tr>
-                                <td>bank interest</td>
-                                <td></td>
+                                <td class="cat">Odsetki bankowe</td>
+                                <td>
+                                <?php
+                        if($result_2->num_rows > 0){
+                            while($row = $result_2->fetch_assoc()){
+                               // echo "user_id: ".$row['user_id'];
+                               // echo " category_id: ".$row['income_category_assigned_to_user_id'];
+                               echo $row['date_of_income']." "; 
+                               echo $row['amount']." ";
+                               echo $row['income_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                                </td>
                             </tr>
                             <tr>
-                                <td>sale on Allegro</td>
-                                <td></td>
+                                <td class="cat">Sprzedaż na allegro</td>
+                                <td>
+                                <?php
+                            if($result_3->num_rows > 0){
+                            while($row = $result_3->fetch_assoc()){
+                               // echo "user_id: ".$row['user_id'];
+                               // echo " category_id: ".$row['income_category_assigned_to_user_id'];
+                               echo $row['date_of_income']." "; 
+                               echo $row['amount']." ";
+                               echo $row['income_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+
+                        ?>
+                                </td>
                             </tr>
                             <tr>
-                                <td>other</td>
-                                <td></td>
+                                <td class="cat">inne</td>
+                                <td>
+                                <?php
+                        if($result_4->num_rows > 0){
+                            while($row = $result_4->fetch_assoc()){
+                                //echo "user_id: ".$row['user_id'];
+                                //echo " category_id: ".$row['income_category_assigned_to_user_id'];
+                                echo $row['date_of_income']." ";
+                                echo $row['amount']." ";
+                                echo $row['income_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                                </td>
                             </tr>
                             <tr class="total">
                                 <th>total</th>
@@ -118,80 +170,297 @@
                     <div class="piechart1"></div>
                 </section>
                 <section class="col-xl-6 col-xxl-4">
-                    <header>
-                        <h3>Wydatki</h3>
-                    </header>
                     <table>
                         <thead>
-                            <tr class="column">
-                                <th>category</th>
-                                <th>amount</th>
+                            <tr>
+                            <header>
+                        <h3 id="expenses">Wydatki</h3>
+                    </header>
                             </tr>
                         </thead>
                         <tbody>
+                        <tr>
+                                <td class="cat">Jedzenie</td>  
+                                <td>
+                                <?php
+                        if($result_1e->num_rows > 0){
+                            while($row = $result_1e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
                             <tr>
-                                <td>food</td>
-                                <td></td>
+                            <td class="cat">Mieszkanie</td>  
+                                <td>
+                                <?php
+                        if($result_2e->num_rows > 0){
+                            while($row = $result_2e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
+                            </tr>
+                            <td class="cat">Transport</td>  
+                                <td>
+                                <?php
+                        if($result_3e->num_rows > 0){
+                            while($row = $result_3e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
+                            <tr>
+                            <td class="cat">Telekomunikacja</td>  
+                                <td>
+                                <?php
+                        if($result_4e->num_rows > 0){
+                            while($row = $result_4e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
                             </tr>
                             <tr>
-                                <td>flat</td>
-                                <td></td>
+                            <td class="cat">Opieka zdrowotna</td>  
+                                <td>
+                                <?php
+                        if($result_5e->num_rows > 0){
+                            while($row = $result_5e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
+                            </tr>
+                            <td class="cat">Ubrania</td>  
+                                <td>
+                                <?php
+                        if($result_6e->num_rows > 0){
+                            while($row = $result_6e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
+                            <tr>
+                            <td class="cat">Higiena</td>  
+                                <td>
+                                <?php
+                        if($result_7e->num_rows > 0){
+                            while($row = $result_7e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
                             </tr>
                             <tr>
-                                <td>transport</td>
-                                <td></td>
+                            <td class="cat">Dzieci</td>  
+                                <td>
+                                <?php
+                        if($result_8e->num_rows > 0){
+                            while($row = $result_8e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
                             </tr>
                             <tr>
-                                <td>telecomunication</td>
-                                <td></td>
+                            <td class="cat">Rozrywka</td>  
+                                <td>
+                                <?php
+                        if($result_9e->num_rows > 0){
+                            while($row = $result_9e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
                             </tr>
                             <tr>
-                                <td>healthcare</td>
-                                <td></td>
+                            <td class="cat">Podróże</td>  
+                                <td>
+                                <?php
+                        if($result_10e->num_rows > 0){
+                            while($row = $result_10e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
                             </tr>
                             <tr>
-                                <td>clothes</td>
-                                <td></td>
+                            <td class="cat">Szkolenia/Kursy</td>  
+                                <td>
+                                <?php
+                        if($result_11e->num_rows > 0){
+                            while($row = $result_11e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
                             </tr>
                             <tr>
-                                <td>hygiene</td>
-                                <td></td>
+                            <td class="cat">Książki</td>  
+                                <td>
+                                <?php
+                        if($result_12e->num_rows > 0){
+                            while($row = $result_12e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
                             </tr>
                             <tr>
-                                <td>kids</td>
-                                <td></td>
+                            <td class="cat">Oszczędności</td>  
+                                <td>
+                                <?php
+                        if($result_13e->num_rows > 0){
+                            while($row = $result_13e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
                             </tr>
                             <tr>
-                                <td>entertainment</td>
-                                <td></td>
+                            <td class="cat">Spłata długów</td>  
+                                <td>
+                                <?php
+                        if($result_14e->num_rows > 0){
+                            while($row = $result_14e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
                             </tr>
                             <tr>
-                                <td>trip</td>
-                                <td></td>
+                            <td class="cat">Darowizna</td>  
+                                <td>
+                                <?php
+                        if($result_15e->num_rows > 0){
+                            while($row = $result_15e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
                             </tr>
                             <tr>
-                                <td>training</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>books</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>saving</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>debt repayment</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>donation</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>stock exchange</td>
-                                <td></td>
+                            <td class="cat">Giełda</td>  
+                                <td>
+                                <?php
+                        if($result_16e->num_rows > 0){
+                            while($row = $result_16e->fetch_assoc()){
+                              echo $row['date_of_expense']." ";  
+                              echo $row['amount']." ";
+                              echo $row['payment_method_assigned_to_user_id']." ";
+                              echo $row['expense_comment']."<br>";
+                            }
+                        }
+                        else{
+                            echo "Nie ma nic w bazie danych";
+                        }
+                        ?>
+                            </td>
                             </tr>
                             <tr class="total">
                                 <th>total</th>
