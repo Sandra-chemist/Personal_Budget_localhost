@@ -39,7 +39,7 @@ article{
   padding: 5px;
 }
 .row{
-    width: 560px;
+    width: 420px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -48,9 +48,21 @@ form{
     height: 440px;
     padding: 20px;
 }
-input[type=text],
+input[type=text]{
+    width: 250px;
+    height: 48px;
+    background-color: #e0b1cb;
+    color: #563e5a;
+    border: 2px solid #be95c4;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 10px;
+    outline: none;
+    margin-left: 2px;
+    font-family: 'Darker Grotesque', sans-serif;
+}
 input[type=number]{
-    width: 300px;
+    width: 200px;
     height: 48px;
     background-color: #e0b1cb;
     color: #563e5a;
@@ -192,13 +204,17 @@ input[type=date]{
     margin-right: -165px;
 }
 input[type=number]{
-    margin-right: -32px;
+    margin-right: -125px;
 }
 input[type=text]{
-    margin-right: 7px;
+    margin-right: -40px;
 }
 #expense{
     margin-right: -95px;
+}
+#credit_card{
+    margin-left: 160px;
+    margin-top: 10px;
 }
    
 

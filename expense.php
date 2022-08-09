@@ -30,6 +30,11 @@
             
             if ($everything_ok == true){
                 $user_id = $_SESSION['id'];
+                $id = $_POST['category'];
+                $expense_category_assigned_to_user_id = $id; 
+
+                $id = $_POST['payments'];
+                $payment_method_assigned_to_user_id = $id;
                 //Wszystkie testy zaliczone
                 if ($connection->query("INSERT INTO expenses VALUES (NULL, '$user_id', '$expense_category_assigned_to_user_id', '$payment_method_assigned_to_user_id', ' $amount', ' $date_of_expense', ' $expense_comment' )")){
                     $_SESSION['addedexpense'] = true;
@@ -102,13 +107,13 @@
                     <p>
                         <label class="payment">Metoda Płatności </label>
 
-                        <input type="radio" id="cash" name="payments" value="cash" checked><label for="cash">
+                        <input type="radio" id="cash" name="payments" value="1" checked><label for="cash">
                             gotówka</label>
 
-                        <input type="radio" id="debid_card" name="payments" value="debid_card"><label for="debid_card">
+                        <input type="radio" id="debid_card" name="payments" value="2"><label for="debid_card">
                             karta debetowa</label>
 
-                        <input type="radio" id="credit_card" name="payments" value="credit_card"><label
+                        <input type="radio" id="credit_card" name="payments" value="3"><label
                             for="credit_card"> karta kredytowa</label>
                     </p>
                     <p>
