@@ -44,7 +44,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Personal Budget - View Balance</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="balance.css" type="text/css">
+    <link rel="stylesheet" href="show_balance.css" type="text/css">
     <link rel="stylesheet" href="css/fontello.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@
             <h2 class="logo">Poprzedni miesiąc</h2>
             <div class="row">
                 <p>
-                <a href="main_menu.php"><input type="button" id="menu" value="Powrót do menu głównego"></a>  
+                <a href="main_menu.php"><input type="button" id="menu" value="Menu główne"></a>  
     </p>
             </div>
             <div class="row">

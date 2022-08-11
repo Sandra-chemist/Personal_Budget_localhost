@@ -44,7 +44,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Personal Budget - View Balance</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="balance.css" type="text/css">
+    <link rel="stylesheet" href="show_balance.css" type="text/css">
     <link rel="stylesheet" href="css/fontello.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
@@ -58,9 +58,10 @@
     </header>
     <main>
         <article class="container-fluid">
-            <h2 class="logo">Wybrany okres czasu</h2>
+            <h2 class="logo">Przeglądaj bilans</h2>
             <div class="row">
-            <form>
+                <form>
+                    <p>
                                 <div class="form_group">
                                     <label>Data początkowa</label>
                                     <input type="date" name="from_date" class="form_control">
@@ -70,14 +71,18 @@
                                     <input type="date" name="to_date" class="form_control">
                                 </div>
                                 <div>
-                                    <button type="submit" class="filter">Filtruj</button>
+                                <a href="main_menu.php"><input type="button" id="menu" value="Menu główne"></a>
+                                </div>
                             </div>
-</form>
-<p>
-                <a href="main_menu.php"><input type="button" id="menu" value="Powrót do menu głównego"></a>  
-    </p>
-</div>
-                
+                            <?php
+if(isset($_GET['from_date']) && isset($_GET['to_date'])){
+    $from_date = $_GET['from_date']; 
+   echo $to_date = $_GET['to_date']; 
+
+}
+    ?>
+             </p>
+            </form>
             </div>
             <div class="row">
                 <section class="col-xl-6 col-xxl-4 offset-xxl-2">
@@ -470,7 +475,6 @@
                 </section>
             </div>
         </article>
-
     </main>
     <footer>
         <i class="icon-copyright"></i>
@@ -481,5 +485,4 @@
         crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
-
 </html>

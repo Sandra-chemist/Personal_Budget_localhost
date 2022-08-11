@@ -17,13 +17,9 @@ h2.logo{
     font-weight: 500;
     text-align: center;
     letter-spacing: 3px;
-    margin-top: 20px;
-}
-h3{
-    padding: 20px;
-    letter-spacing: 1px;
-    font-size: 40px;
-    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 15px;
+    color: indigo;
 }
 h4{
     font-size: 20px;
@@ -33,7 +29,7 @@ h4{
     color: indigo;
 }
 article{
-    height: auto;
+    height: 700px;
     border-top-width: 6px;
     border-bottom-width: 6px;
     border-color: #b68bcf;
@@ -43,19 +39,18 @@ article{
     padding: 5px;
   }
 .row{
+    width: 420px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
 }
 form{
-    height: 180px;
+    height: 390px;
     padding: 20px;
-    margin-left: auto;
-    margin-right: auto;
 }
 input[type=button]{
-    width: 310px;
-    margin-bottom: 20px;
+    width: 200px;
+    margin-top: 20px;
     background-color: #9f86c0;
     font-size: 25px;
     color: white;
@@ -77,144 +72,26 @@ input[type=button]:hover
     background-color: #cdb4db;
     border: 2px solid #b180ce;
 }
-input::-webkit-input-placeholder{
-    color: #563e5a;
-}
-input:focus::-webkit-input-placeholder{
-    color: #5e548e;
-}
-input:-moz-placeholder{
-    color: #563e5a;
-}
-input:focus:-moz-placeholder{
-    color:  #5e548e;
-}
-input[type=submit]{
-    width: 200px;
-    background-color: #9f86c0;
-    font-size: 25px;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    letter-spacing: 1px;
-    outline: none;
-    font-family: 'Darker Grotesque', sans-serif;
-}
 footer{
     color:#9944c9;
     font-size: 20px;
     text-align: center;
     padding: 15px;
 }
-input[type=date]{
-    height: 30px;
-    width: 150px;
-    font-size: 18px;
-    border: 2px solid #be95c4;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #e0b1cb;
-    color: #563e5a;
-    outline: none;
-    font-family: 'Darker Grotesque', sans-serif;
-}
-input[type=date]:focus{
-    -webkit-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
-    -moz-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
-    box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
-    border: 2px solid #b180ce;
-    background-color: #cdb4db;
-    color:#9944c9
-}
-input[type=date]:hover{
-    background-color: #cdb4db;
-    border: 2px solid #b180ce;
-}
-.filter{
-    height: 40px;
-    width: 80px;
-    font-size: 18px;
-    border: 2px solid #be95c4;
-    border-radius: 5px;
-    padding: 2px;
-    margin-top: 10px;
-    background-color: #e0b1cb;
-    color: #563e5a;
-    outline: none;
-    font-family: 'Darker Grotesque', sans-serif;
-}
-.total{
-    text-align: center;
-    border: 2px solid #b180ce;
-    height: 80px;
-    padding: 20px;
-    font-weight: bold;
-    font-size: 25px;
-    background-color: #b8a0d8;
-}
-.piechart1,
-.piechart2{
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background-image: conic-gradient(
-        #ac6cd0 100deg, 
-        #bca4ca 0 235deg, 
-        #e3dae9 0
-        );
-}
-section{
-    height: auto;
-    /*border: 3px solid black;*/
-    font-family: 'Darker Grotesque', sans-serif;
-}
-table{
-    width: 450px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-    padding: 10px;
-}
-td{
-    padding: 5px;
-    font-size: 20px;
-}
-#incomes,
-#expenses{
-    margin-top: 70px;
-    text-align: center;
-    border: 2px solid #b180ce;
-    height: 80px;
-    padding: 20px;
-    font-weight: bold;
-    font-size: 35px;
-    background-color: #b8a0d8;
-}
-.cat{
-    font-size: 25px;
-    text-align: center;
-}
-#menu{
-    margin-top: 50px;
-}
 /* Dropdown Button */
 .dropbtn {
     background-color: #e0b1cb;
     border: 2px solid #be95c4;
     padding: 10px;
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: 600;
     border-radius: 5px;
     color: #563e5a;
     outline: none;
     min-width: 200px;
-    font-family: 'Darker Grotesque', sans-serif
+    height: 70px;
+    font-family: 'Darker Grotesque', sans-serif;
+   
   }  
   /* The container <div> - needed to position the dropdown content */
   .dropdown {
@@ -225,9 +102,8 @@ td{
   .dropdown-content {
     display: none;
     position: absolute;
-    margin-left: 55px;
     background-color: #cdb4db;
-    border: 2px solid #b180ce;  
+    border: 2px solid #b180ce;
     min-width: 200px;
   }
   /* Links inside the dropdown */

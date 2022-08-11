@@ -79,7 +79,7 @@
                 <form method ="post">
                 <p>
                         <label class="categories">Kategoria </label>
-                        <select id="income" name ="category">
+                        <select name ="category">
                             <option value="1">pensja</option>
                             <option value="2">odsetki bankowe</option>
                             <option value="3">sprzedaż na allegro</option>
