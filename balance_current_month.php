@@ -58,21 +58,8 @@
     </header>
     <main>
         <article class="container-fluid">
-            <h2 class="logo">Przeglądaj bilans</h2>
+            <h2 class="logo">Obecny miesiąc</h2>
             <div class="row">
-                <form>
-                    <p>
-                    <div class="dropdown">
-  <button class="dropbtn">Wybierz okres czasu</button>
-  <div class="dropdown-content">
-    <a href="balance_current_month.php">obecny miesiąc</a>
-    <a href="balance_previous_month.php">poprzedni miesiąc</a>
-    <a href="balance_current_year.php">obecny rok</a>
-    <a href="balance_selected_period.php">wybrany okres czasu</a>
-  </div>
-
-                    </p>
-                </form>
                 <p>
                 <a href="main_menu.php"><input type="button" id="menu" value="Powrót do menu głównego"></a>  
     </p>
