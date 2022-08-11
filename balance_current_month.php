@@ -65,7 +65,7 @@
     </p>
             </div>
             <div class="row">
-                <section class="col-xl-6 col-xxl-4 offset-xxl-2">
+                <section  class="col-xl-6 col-xxl-4">
                     <table>
                         <thead>
                             <tr >

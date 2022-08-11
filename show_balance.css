@@ -21,12 +21,12 @@ h2.logo{
     margin-bottom: 15px;
     color: indigo;
 }
-/*h3{
+h3{
     padding: 20px;
     letter-spacing: 1px;
     font-size: 40px;
     text-align: center;
-}*/
+}
 h4{
     font-size: 20px;
     font-weight: 400;
@@ -45,18 +45,14 @@ article{
     padding: 5px;
   }
   .row{
-    width: 420px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
 }
-form{
-    height: 390px;
-    padding: 20px;
-}
 input[type=button]{
     width: 200px;
     margin-top: 30px;
+    margin-bottom: 30px;
     background-color: #9f86c0;
     font-size: 25px;
     color: white;
@@ -120,12 +116,6 @@ input[type=date]:hover{
     background-color: #cdb4db;
     border: 2px solid #b180ce;
 }
-.form_group{
-    font-size: 24px;
-    font-weight: bold;
-    padding: 10px;
-    font-family: 'Darker Grotesque', sans-serif;
-}
 .total{
     text-align: center;
     border: 2px solid #b180ce;
@@ -133,6 +123,7 @@ input[type=date]:hover{
     padding: 20px;
     font-weight: bold;
     font-size: 25px;
+    width: auto;
     background-color: #b8a0d8;
 }
 .piechart1,
@@ -152,15 +143,21 @@ input[type=date]:hover{
 }
 section{
     height: auto;
-    /*border: 3px solid black;*/
+    margin: auto;
+    border: 3px solid black;
     font-family: 'Darker Grotesque', sans-serif;
 }
 table{
-    width: 450px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 600px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
     padding: 10px;
+}
+tr{
+    background-color: #cdb4db;
 }
 td{
     padding: 5px;
@@ -168,13 +165,13 @@ td{
 }
 #incomes,
 #expenses{
-    margin-top: 10px;
+    margin: auto;
     text-align: center;
     border: 2px solid #b180ce;
     height: 80px;
-    padding: 20px;
     font-weight: bold;
     font-size: 35px;
+    width: auto;
     background-color: #b8a0d8;
 }
 
