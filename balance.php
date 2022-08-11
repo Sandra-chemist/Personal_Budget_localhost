@@ -64,14 +64,37 @@
                     <p>
                         <label class="category">Wybierz okres czasu </label>
                         <select id="expense">
-                            <option>obecny miesiąc</option>
-                            <option>poprzedni miesiąc</option>
+                            <option name="current_month">obecny miesiąc</option>
+                            <?php
+
+                            ?>
+                            <option name="previous_moth"">poprzedni miesiąc</option>
                             <option>obecny rok</option>
                             <option>wybrany okres czasu</option>
                         </select>
+                                <div class="form_group">
+                                    <label>Data początkowa</label>
+                                    <input type="date" name="from_date" class="form_control">
+                                </div>
+                                <div class="form_group">
+                                    <label>Data końcowa</label>
+                                    <input type="date" name="to_date" class="form_control">
+                                </div>
+                                <div>
+                                    <button type="submit" class="filter">Filtruj</button>
+                            </div>
+                            <?php
+if(isset($_GET['from_date']) && isset($_GET['to_date'])){
+    $from_date = $_GET['from_date']; 
+   echo $to_date = $_GET['to_date']; 
+
+}
+    ?>
                     </p>
-                    <a href="main_menu.php"><input type="button" value="Powrót do menu głównego"></a>  
                 </form>
+                <p>
+                <a href="main_menu.php"><input type="button" id="menu" value="Powrót do menu głównego"></a>  
+    </p>
             </div>
             <div class="row">
                 <section class="col-xl-6 col-xxl-4 offset-xxl-2">
@@ -90,8 +113,6 @@
                                 <?php
                         if($result_1->num_rows > 0){
                             while($row = $result_1->fetch_assoc()){
-                               // echo "user_id: ".$row['user_id'];
-                              //  echo " category_id: ".$row['income_category_assigned_to_user_id'];
                               echo $row['date_of_income']." ";  
                               echo $row['amount']." ";
                               echo $row['income_comment']."<br>";
@@ -109,8 +130,6 @@
                                 <?php
                         if($result_2->num_rows > 0){
                             while($row = $result_2->fetch_assoc()){
-                               // echo "user_id: ".$row['user_id'];
-                               // echo " category_id: ".$row['income_category_assigned_to_user_id'];
                                echo $row['date_of_income']." "; 
                                echo $row['amount']." ";
                                echo $row['income_comment']."<br>";
@@ -128,8 +147,6 @@
                                 <?php
                             if($result_3->num_rows > 0){
                             while($row = $result_3->fetch_assoc()){
-                               // echo "user_id: ".$row['user_id'];
-                               // echo " category_id: ".$row['income_category_assigned_to_user_id'];
                                echo $row['date_of_income']." "; 
                                echo $row['amount']." ";
                                echo $row['income_comment']."<br>";
@@ -148,8 +165,6 @@
                                 <?php
                         if($result_4->num_rows > 0){
                             while($row = $result_4->fetch_assoc()){
-                                //echo "user_id: ".$row['user_id'];
-                                //echo " category_id: ".$row['income_category_assigned_to_user_id'];
                                 echo $row['date_of_income']." ";
                                 echo $row['amount']." ";
                                 echo $row['income_comment']."<br>";
