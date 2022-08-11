@@ -12,28 +12,7 @@
     $connection = new mysqli($host, $db_user, $db_password, $db_name);
     $user_id = $_SESSION['id'];
 
-    $result_1 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1"); 
-    $result_2 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 2"); 
-    $result_3 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 3"); 
-    $result_4 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 4");
     
-    $result_1e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 1"); 
-    $result_2e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 2"); 
-    $result_3e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 3"); 
-    $result_4e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 4");
-    $result_5e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 5"); 
-    $result_6e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 6"); 
-    $result_7e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 7"); 
-    $result_8e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 8");
-    $result_9e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 9"); 
-    $result_10e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 10"); 
-    $result_11e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 11"); 
-    $result_12e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 12");
-    $result_13e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 13"); 
-    $result_14e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 14"); 
-    $result_15e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 15"); 
-    $result_16e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 16");
-
     
 ?>
 <!DOCTYPE html>
@@ -70,14 +49,38 @@
                                     <label>Data końcowa</label>
                                     <input type="date" name="to_date" class="form_control">
                                 </div>
+                                <div class="form_group">
+                                    <input type="submit" name="submit" value="Filtruj" class="form_control">
+                                </div>
                                 <div>
                                 <a href="main_menu.php"><input type="button" id="menu" value="Menu główne"></a>
                                 </div>
                             </div>
                             <?php
 if(isset($_GET['from_date']) && isset($_GET['to_date'])){
-    $from_date = $_GET['from_date']; 
-   echo $to_date = $_GET['to_date']; 
+   $from_date = $_GET['from_date']; 
+   $to_date = $_GET['to_date']; 
+   $result_1 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
+   $result_2 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 2 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
+   $result_3 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 3 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
+   $result_4 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 4 && date_of_income BETWEEN '$from_date' AND '$to_date'");
+   
+   $result_1e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 1 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+   $result_2e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 2 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+   $result_3e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 3 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+   $result_4e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 4 && date_of_expense BETWEEN '$from_date' AND '$to_date'");
+   $result_5e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 5 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+   $result_6e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 6 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+   $result_7e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 7 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+   $result_8e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 8 && date_of_expense BETWEEN '$from_date' AND '$to_date'");
+   $result_9e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 9 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+   $result_10e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 10 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+   $result_11e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 11 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+   $result_12e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 12 && date_of_expense BETWEEN '$from_date' AND '$to_date'");
+   $result_13e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 13 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+   $result_14e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 14 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+   $result_15e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 15 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+   $result_16e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 16 && date_of_expense BETWEEN '$from_date' AND '$to_date'");
 
 }
     ?>
@@ -85,7 +88,7 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
             </form>
             </div>
             <div class="row">
-                <section class="col-xl-6 col-xxl-4 offset-xxl-2">
+                <section class="col-xl-6 col-xxl-4">
                     <table>
                         <thead>
                             <tr >

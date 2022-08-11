@@ -49,10 +49,11 @@ article{
     margin-left: auto;
     margin-right: auto;
 }
-input[type=button]{
+input[type=button],
+input[type=submit]{
     width: 200px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     background-color: #9f86c0;
     font-size: 25px;
     color: white;
@@ -64,13 +65,14 @@ input[type=button]{
     outline: none;
     font-family: 'Darker Grotesque', sans-serif;
 }
-input[type=button]:focus{
+input[type=button]:focus,
+input[type=submit]:focus{
 -webkit-box-shadow: 0px 0px 10px 3px #be95c4;
     -moz-box-shadow: 0px 0px 10px 3px #be95c4;
     box-shadow: 0px 0px 10px 3px #be95c4;
 }
-input[type=button]:hover
-{
+input[type=button]:hover,
+input[type=submit]:hover{
     background-color: #cdb4db;
     border: 2px solid #b180ce;
 }
@@ -144,7 +146,7 @@ input[type=date]:hover{
 section{
     height: auto;
     margin: auto;
-    border: 3px solid black;
+    /*border: 3px solid black;*/
     font-family: 'Darker Grotesque', sans-serif;
 }
 table{
@@ -156,11 +158,16 @@ table{
     text-align: left;
     padding: 10px;
 }
+.cat{
+    font-size: 25px;
+    text-align: center;
+    font-weight: 600;
+}
 tr{
-    background-color: #cdb4db;
+    background-color: #dec3ee;
 }
 td{
-    padding: 5px;
+    padding: 10px;
     font-size: 20px;
 }
 #incomes,
@@ -173,6 +180,9 @@ td{
     font-size: 35px;
     width: auto;
     background-color: #b8a0d8;
+}
+.form_control{
+    margin-top: 20px;
 }
 
 
