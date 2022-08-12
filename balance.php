@@ -7,9 +7,11 @@
         exit();
     }
     $email = $_SESSION['email'];
+
     require_once "connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
     $connection = new mysqli($host, $db_user, $db_password, $db_name);
+
     $user_id = $_SESSION['id'];
 
     $result_1 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1"); 
@@ -33,7 +35,6 @@
     $result_14e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 14"); 
     $result_15e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 15"); 
     $result_16e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 16");
-
     
 ?>
 <!DOCTYPE html>

@@ -9,15 +9,6 @@
     else{
         unset($_SESSION['successfulRegistration']);
     }
-
-    //Usuwanie zmiennych pamietajacych wartosci wpisane do formularza
-    if (isset($_SESSION['fr_username'])) unset($_SESSION['fr_username']);
-    if (isset($_SESSION['fr_email'])) unset($_SESSION['fr_email']);
-    if (isset($_SESSION['fr_password'])) unset($_SESSION['fr_password']);
-    if (isset($_SESSION['fr_conditions'])) unset($_SESSION['fr_conditions']);
-
-    //Usuwanie bledow 
-    if (isset($_SESSION['e_comment'])) unset($_SESSION['e_comment']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +16,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Personal Budget - Added Income</title>
+    <title>Personal Budget - Added Expense</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="added_income_and_expense.css" type="text/css">
     <link rel="stylesheet" href="css/fontello.css" type="text/css">

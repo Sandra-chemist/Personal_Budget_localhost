@@ -35,8 +35,7 @@
     $result_13e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 13 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
     $result_14e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 14 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
     $result_15e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 15 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
-    $result_16e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 16 && date_of_expense BETWEEN '$from_date' AND '$to_date'");
-    
+    $result_16e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 16 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
     
 ?>
 <!DOCTYPE html>

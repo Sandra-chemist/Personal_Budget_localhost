@@ -9,15 +9,6 @@
     else{
         unset($_SESSION['successfulRegistration']);
     }
-
-    //Usuwanie zmiennych pamietajacych wartosci wpisane do formularza
-    if (isset($_SESSION['fr_username'])) unset($_SESSION['fr_username']);
-    if (isset($_SESSION['fr_email'])) unset($_SESSION['fr_email']);
-    if (isset($_SESSION['fr_password'])) unset($_SESSION['fr_password']);
-    if (isset($_SESSION['fr_conditions'])) unset($_SESSION['fr_conditions']);
-
-    //Usuwanie bledow 
-    if (isset($_SESSION['e_comment'])) unset($_SESSION['e_comment']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
