@@ -92,7 +92,7 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                     <table>
                         <thead>
                             <tr >
-                                <header>
+                            <header>
                                <h3 id="incomes"> Przychody </h3>
                                 </header>
                             </tr>
@@ -107,6 +107,10 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                               echo $row['date_of_income']." ";  
                               echo $row['amount']." ";
                               echo $row['income_comment']."<br>";
+                            }
+                            $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                                echo "Suma: ".$rows['total'];
                             }
                         }
                         else{
@@ -125,6 +129,10 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                                echo $row['amount']." ";
                                echo $row['income_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 2 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                                echo "Suma: ".$rows['total'];
+                            }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -142,11 +150,14 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                                echo $row['amount']." ";
                                echo $row['income_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 3 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
                         }
-
                         ?>
                                 </td>
                             </tr>
@@ -160,6 +171,10 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                                 echo $row['amount']." ";
                                 echo $row['income_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 4 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                                echo "Suma: ".$rows['total'];
+                            }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -168,8 +183,15 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                                 </td>
                             </tr>
                             <tr class="total">
-                                <th>total</th>
-                                <th></th>
+                                <th>Suma</th>
+                                <th>
+                                <?php
+                                   $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
+                                   while($rows = mysqli_fetch_assoc($res)){
+                                       echo $rows['total'];
+                                   } 
+                                ?>
+                                </th>
                             </tr>
                         </tbody>
                     </table>
@@ -193,13 +215,18 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_1e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                             // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 1 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
                         }
+                        
                         ?>
                             </td>
                             <tr>
@@ -210,9 +237,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_2e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                             // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 2 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -227,9 +258,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_3e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                             // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 3 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -244,9 +279,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_4e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                             // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 4 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -262,9 +301,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_5e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                             // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 5 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -279,9 +322,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_6e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                             // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 6 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -296,9 +343,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_7e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                             // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 7 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -314,9 +365,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_8e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                            //  echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 8 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -332,9 +387,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_9e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                             // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 9 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -350,9 +409,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_10e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                             // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 10 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -368,9 +431,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_11e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                             // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 11 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -386,9 +453,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_12e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                             // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 12 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -404,9 +475,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_13e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                             // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 13 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -422,9 +497,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_14e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                            //  echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 14 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -440,9 +519,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_15e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                            //  echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 15 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -458,9 +541,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             while($row = $result_16e->fetch_assoc()){
                               echo $row['date_of_expense']." ";  
                               echo $row['amount']." ";
-                              echo $row['payment_method_assigned_to_user_id']." ";
+                             // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 16 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            while($rows = mysqli_fetch_assoc($res)){
+                            echo "Suma: ".$rows['total'];
+                        }
                         }
                         else{
                             echo "Nie ma nic w bazie danych";
@@ -469,8 +556,13 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
                             </td>
                             </tr>
                             <tr class="total">
-                                <th>total</th>
-                                <th></th>
+                                <th>Suma</th>
+                                <th> <?php
+                                   $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                                   while($rows = mysqli_fetch_assoc($res)){
+                                       echo $rows['total'];
+                                   } 
+                                ?></th>
                             </tr>
                         </tbody>
                     </table>
