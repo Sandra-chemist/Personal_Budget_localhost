@@ -1,4 +1,5 @@
-document.getElementById("start").valueAsDate = new Date;
+const input = document.getElementById("start").valueAsDate = new Date;
+console.log(input);
 
 function showhide(){
     const password = document.getElementById('password');
