@@ -48,13 +48,13 @@ try
                 }
                 else 
                 {
-                    $_SESSION['error'] = '<span>Incorrect login or password!</span>';
+                    $_SESSION['error'] = '<span>Nieprawidłowy login lub hasło!</span>';
                     header('Location: index.php');
                 }
                 
             } else {
                 
-                $_SESSION['error'] = '<span>Incorrect login or password!</span>';
+                $_SESSION['error'] = '<span>Nieprawidłowy login lub hasło!</span>';
                 header('Location: index.php');   
             }        
         }

@@ -44,9 +44,6 @@ article{
 form{
     height: 420px;
     padding: 20px;
-   /* -webkit-box-shadow: 3px 3px 30px 5px #be95c4;
-    -moz-box-shadow: 3px 3px 30px 5px #be95c4;
-    box-shadow: 3px 3px 30px 5px #be95c4;*/
 }
 input[type=button]{
     background-color: #9f86c0;

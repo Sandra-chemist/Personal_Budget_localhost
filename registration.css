@@ -35,7 +35,7 @@ h4{
     color: indigo;
 }
 article{
-    height: 700px;
+    height: 800px;
     border-top-width: 6px;
     border-bottom-width: 6px;
     border-color: #b68bcf;
@@ -110,12 +110,6 @@ footer{
     color: #6f3392;
     margin-left: -25px;
 }
-.icon-eye{
-    font-size: 26px;
-    margin-left: -50px;
-    margin-right: 10px;
-    color: #6f3392;
-}
 .g-recaptcha{
     margin-left: 38px;
 }
@@ -123,7 +117,12 @@ footer{
     color: rgb(223, 5, 5);
     font-family: 'Darker Grotesque', sans-serif;
     font-size: 20px;
+    margin-top: -20px;
+}
+.error1{
+    color: rgb(223, 5, 5);
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 20px;
     margin-top: -5px;
 }
-
 

@@ -7,20 +7,26 @@
 
         //sprawdz poprawnoc haslo
         $password = $_POST['password'];
+        $password2 = $_POST['password2'];
+
         $username = $_POST['username'];
         $email = $_POST['email'];
 
         if ((strlen($password) < 8) || (strlen($password) > 20)){
             $all_ok = false;
-            $_SESSION['e_password'] = "Your password must be between 8-20 characters";
+            $_SESSION['e_password'] = "Hasło musi posiadać od 8 do 20 znaków";
         }
-
+ 
+        if ($password != $password2){
+            $all_ok = false;
+            $_SESSION['e_password'] = "Podane hasła nie są identyczne";
+        }
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
         //Czy zaakceptowano regulamin?
         if (!isset($_POST['conditions'])){
             $all_ok = false;
-            $_SESSION['e_conditions'] = "Please confirm terms and conditions";
+            $_SESSION['e_conditions'] = "Zaakceptuj regulamin";
         }
 
         //Bot or not?
@@ -32,7 +38,7 @@
 
         if ($answer->success == false){
             $all_ok = false;
-            $_SESSION['e_bot'] = "Please confirm that you are not a robot!";
+            $_SESSION['e_bot'] = "Potwierdź, że nie jesteś robotem!";
         }
 
         //Zapamietaj wprowadzone dane
@@ -61,7 +67,7 @@
                 if($how_many_email>0)
 				{
 					$all_ok=false;
-					$_SESSION['e_email']="An account already exists with this email address";
+					$_SESSION['e_email']="Z tym adresem e-mail już istnieje konto";
 				}	
                 if ($all_ok == true){
                     //Wszystkie testy zaliczone, dodajemy do bazy
@@ -148,7 +154,6 @@
                             unset($_SESSION['fr_password']);
                         }
                         ?>" name="password" id="password" placeholder="Hasło">
-                        <i id="hider" onclick="showhide()"></i>
                         <?php
                             if (isset($_SESSION['e_password'])){
                                 echo '<div class = "error">'.$_SESSION['e_password'].'</div>';
@@ -156,6 +161,10 @@
                             }
                         ?>
                     </p>
+                    <p>
+                    <i class="icon-lock"></i>
+                        <input type="password" name="password2" id="password2" placeholder="Powtórz hasło">
+                        </p>
                     <p>
                         <label>
                             <input type="checkbox" name="conditions" <?php
@@ -176,7 +185,7 @@
                     <div class="g-recaptcha" data-sitekey="6LdSiXIhAAAAAJ82JINrTdobcOPdW9zqWKxYewVb"></div>   
                     <?php
                             if (isset($_SESSION['e_bot'])){
-                                echo '<div class = "error">'.$_SESSION['e_bot'].'</div>';
+                                echo '<div class = "error1">'.$_SESSION['e_bot'].'</div>';
                                 unset($_SESSION['e_bot']);
                             }
                         ?>

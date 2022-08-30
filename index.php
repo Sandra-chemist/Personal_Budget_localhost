@@ -20,7 +20,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+   
 </head>
 
 <body>
@@ -42,11 +43,11 @@
                 <form action="signIn.php" method="post">
                     <p>
                         <i class="icon-mail"></i>
-                    <input type="email" placeholder="E-mail" name="email">
+                    <input type="email" placeholder="E-mail" name="email" required>
                     </p>
                     <p>
                         <i class="icon-lock"></i>
-                        <input type="password" placeholder="Hasło" id="password" name="password">
+                        <input type="password" placeholder="Hasło" id="password" name="password" required>
                         <i id="hider" onclick="showhide()"></i>
                     </p>
                     <p class="remember">
