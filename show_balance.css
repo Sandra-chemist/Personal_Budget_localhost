@@ -107,8 +107,7 @@ input[type=date]:hover{
     width: auto;
     background-color: #b8a0d8;
 }
-.piechart1,
-.piechart2{
+.piechart1{
     margin-top: 30px;
     margin-bottom: 30px;
     margin-left: auto;
@@ -117,6 +116,7 @@ input[type=date]:hover{
     height: 300px;
     border-radius: 50%;
     background-image: conic-gradient(
+        #9c3cd3 0deg,    
         #ac6cd0 100deg, 
         #bca4ca 0 235deg, 
         #e3dae9 0

@@ -103,7 +103,7 @@
                     </p>
                     <p>
                         <label class="amount">Kwota </label> 
-                        <input type="number" name="amount" placeholder="123" step="0.01" min="0">
+                        <input type="number" name="amount" placeholder="123" step="0.01" min="0" required>
                     </p>
                     <p>
                         <label class="payment">Metoda Płatności </label>
@@ -115,7 +115,7 @@
                     </p>
                     <p>
                         <label class="date" for="start">Data </label> 
-                        <input type="date" id="start" name="date">
+                        <input type="date" id="start" name="date" min="2000-01-01" required>
                     </p>
                     <p>
                         <label class="comment">Komentarz </label>
