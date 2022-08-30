@@ -11,8 +11,6 @@
     mysqli_report(MYSQLI_REPORT_STRICT);
     $connection = new mysqli($host, $db_user, $db_password, $db_name);
     $user_id = $_SESSION['id'];
-
-    
     
 ?>
 <!DOCTYPE html>
@@ -42,24 +40,18 @@
                 <form>
                     <p>
                                 <div class="form_group">
-                                    <label>Data początkowa</label>
-                                    <input type="date" name="from_date" class="form_control">
+                                    <label id="start">Data początkowa</label>
+                                    <input type="date" name="from_date" class="form_control" required>
                                 </div>
                                 <div class="form_group">
-                                    <label>Data końcowa</label>
-                                    <input type="date" name="to_date" class="form_control">
+                                    <label id="end">Data końcowa</label>
+                                    <input type="date" name="to_date" class="form_control" required>
                                 </div>
-                                <div class="form_group">
-                                    <input type="submit" name="submit" value="Filtruj" class="form_control">
-                                </div>
-                                <div>
-                                <a href="main_menu.php"><input type="button" id="menu" value="Menu główne"></a>
-                                </div>
-                            </div>
-                            <?php
+                                <h5><?php
 if(isset($_GET['from_date']) && isset($_GET['to_date'])){
    $from_date = $_GET['from_date']; 
    $to_date = $_GET['to_date']; 
+   if($from_date < $to_date){
    $result_1 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
    $result_2 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 2 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
    $result_3 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 3 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
@@ -81,9 +73,20 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
    $result_14e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 14 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
    $result_15e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 15 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
    $result_16e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 16 && date_of_expense BETWEEN '$from_date' AND '$to_date'");
-
+   echo "Wybrany okres czasu: ".$from_date. " - " .$to_date;
+    }
+   else{
+    echo 'Wprowadź datę końcową późniejszą niż początkową';
+   }
 }
-    ?>
+    ?></h5>
+                                <div class="form_group">
+                                    <input type="submit" name="submit" value="Filtruj" class="form_control">
+                                </div>
+                                <div>
+                                <a href="main_menu.php"><input type="button" id="menu" value="Menu główne"></a>
+                                </div>
+                            </div>
              </p>
             </form>
             </div>
