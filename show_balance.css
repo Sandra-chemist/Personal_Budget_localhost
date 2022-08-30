@@ -51,43 +51,22 @@ article{
 }
 input[type=button],
 input[type=submit]{
-    width: 200px;
-    margin-top: 20px;
-    margin-bottom: 10px;
     background-color: #9f86c0;
-    font-size: 25px;
+    width: 200px;
+    height: 60px;
+    margin-top: 5px;
     color: white;
-    padding: 10px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
-    letter-spacing: 1px;
+    font-size: 25px;
+    padding: 1px;
     outline: none;
     font-family: 'Darker Grotesque', sans-serif;
-}
-input[type=button]:focus,
-input[type=submit]:focus{
--webkit-box-shadow: 0px 0px 10px 3px #be95c4;
-    -moz-box-shadow: 0px 0px 10px 3px #be95c4;
-    box-shadow: 0px 0px 10px 3px #be95c4;
-}
-input[type=button]:hover,
-input[type=submit]:hover{
-    background-color: #cdb4db;
-    border: 2px solid #b180ce;
-}
-input::-webkit-input-placeholder{
-    color: #563e5a;
-}
-input:focus::-webkit-input-placeholder{
-    color: #5e548e;
-}
-input:-moz-placeholder{
-    color: #563e5a;
-}
-input:focus:-moz-placeholder{
-    color:  #5e548e;
-}
+  }
+  input[type=button]:hover{
+      background-color: #cdb4db;
+      border: 2px solid #b180ce;
+  }
 footer{
     color:#9944c9;
     font-size: 20px;

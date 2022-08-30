@@ -49,26 +49,19 @@ form{
     padding: 20px;
 }
 input[type=button]{
-    width: 200px;
-    margin-top: 20px;
-    background-color: #9f86c0;
-    font-size: 25px;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    letter-spacing: 1px;
-    outline: none;
-    font-family: 'Darker Grotesque', sans-serif;
+  background-color: #9f86c0;
+  width: 200px;
+  height: 60px;
+  margin-top: 5px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 25px;
+  padding: 1px;
+  outline: none;
+  font-family: 'Darker Grotesque', sans-serif;
 }
-input[type=button]:focus{
--webkit-box-shadow: 0px 0px 10px 3px #be95c4;
-    -moz-box-shadow: 0px 0px 10px 3px #be95c4;
-    box-shadow: 0px 0px 10px 3px #be95c4;
-}
-input[type=button]:hover
-{
+input[type=button]:hover{
     background-color: #cdb4db;
     border: 2px solid #b180ce;
 }
@@ -84,12 +77,12 @@ footer{
     border: 2px solid #be95c4;
     padding: 10px;
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 500;
     border-radius: 5px;
     color: #563e5a;
     outline: none;
     min-width: 200px;
-    height: 70px;
+    height: 65px;
     font-family: 'Darker Grotesque', sans-serif;
    
   }  

@@ -39,8 +39,8 @@ article{
   padding: 5px;
 }
 .row{
-    width: 420px;
-    text-align: center;
+    width: 360px;
+    text-align: left;
     margin-left: auto;
     margin-right: auto;
 }
@@ -53,24 +53,31 @@ form{
 }
 input[type=submit],
 input[type=button]{
-    width: 150px;
     background-color: #9f86c0;
-    font-size: 25px;
+    width: 160px;
+    height: 60px;
+    margin-top: 5px;
     color: white;
-    padding: 10px;
-    margin-top: 20px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
-    letter-spacing: 1px;
+    font-size: 25px;
+    padding: 1px;
     outline: none;
     font-family: 'Darker Grotesque', sans-serif;
+}
+input[type=text]{
+    width: 216px;
+}
+input[type=date]{
+    width: 271px;
+}
+input[type=number]{
+    width: 257px;
 }
 input[type=date],
 input[type=number],
 input[type=text]{
     height: 55px;
-    width: 220px;
     font-size: 22px;
     border: 2px solid #be95c4;
     border-radius: 5px;
@@ -80,50 +87,13 @@ input[type=text]{
     outline: none;
     font-family: 'Darker Grotesque', sans-serif;
 }
-input[type=date]{
-    margin-right: -45px;
-}
-input[type=number]{
-    margin-right: -32px;
-}
-input[type=text]{
-    margin-right: 7px;
-}
-input[type=text]:focus,
-input[type=date]:focus,
-input[type=number]:focus{
-    -webkit-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
-    -moz-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
-    box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
-    border: 2px solid #b180ce;
-    background-color: #cdb4db;
-    color:#9944c9
-}
-input[type=submit]:focus
-input[type=button]:focus{
--webkit-box-shadow: 0px 0px 10px 3px #be95c4;
-    -moz-box-shadow: 0px 0px 10px 3px #be95c4;
-    box-shadow: 0px 0px 10px 3px #be95c4;
-}
 input[type=submit]:hover,
 input[type=button]:hover,
 input[type=text]:hover,
-input[type=date]:hover
-{
+input[type=date]:hover,
+input[type=number]:hover{
     background-color: #cdb4db;
     border: 2px solid #b180ce;
-}
-input::-webkit-input-placeholder{
-    color: #563e5a;
-}
-input:focus::-webkit-input-placeholder{
-    color: #5e548e;
-}
-input:-moz-placeholder{
-    color: #563e5a;
-}
-input:focus:-moz-placeholder{
-    color:  #5e548e;
 }
 footer{
     color:#9944c9;
@@ -146,7 +116,7 @@ footer{
 }
 select{
     height: 55px;
-    width: 220px;
+    width: 228px;
     font-size: 22px;
     border: 2px solid #be95c4;
     border-radius: 5px;

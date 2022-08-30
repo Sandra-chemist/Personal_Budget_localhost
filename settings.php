@@ -1,15 +1,3 @@
-<?php
-
-    session_start();
-
-    if (!isset($_SESSION['addedincome'])){
-        header('Location: index.php');
-        exit();
-    }
-    else{
-        unset($_SESSION['addedincome']);
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Personal Budget - Added Income</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="added_income_and_expense.css" type="text/css">
+    <link rel="stylesheet" href="settings.css" type="text/css">
     <link rel="stylesheet" href="css/fontello.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
@@ -36,7 +24,7 @@
         <div class="row">
                 <form>
                     <p>
-                         <h3>Dodałeś przychód! </h3>
+                         <h3>Ustawienia </h3>
                     </p>
                     <p>
                         <a href="main_menu.php"><h5><input type="button" value="Menu główne"></h5></a>

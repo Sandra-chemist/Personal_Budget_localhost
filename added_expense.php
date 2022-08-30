@@ -1,4 +1,4 @@
-  <?php
+<?php
 
     session_start();
 
@@ -7,8 +7,9 @@
         exit();
     }
     else{
-        unset($_SESSION['successfulRegistration']);
+        unset($_SESSION['addedexpense']);
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

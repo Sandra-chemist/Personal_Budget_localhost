@@ -57,7 +57,7 @@
                     </p>
                     <p>
                         <i class="icon-cog"></i>
-                        <input type="submit" value="Ustawienia">
+                        <a href="settings.php"><input type="button" value="Ustawienia"></a>
                     </p>
                     <p>
                         <i class="icon-logout"></i> 

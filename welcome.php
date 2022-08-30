@@ -1,4 +1,4 @@
-  <?php
+<?php
 
     session_start();
 
@@ -28,7 +28,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Personal Budget - Sign in</title>
+    <title>Personal Budget - Welcome</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="welcome.css" type="text/css">
     <link rel="stylesheet" href="css/fontello.css" type="text/css">

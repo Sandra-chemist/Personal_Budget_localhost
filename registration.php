@@ -1,6 +1,5 @@
 <?php
-
-    session_start();
+    session_start();    
 
     if (isset($_POST['email'])){
         //udana walidacja?
@@ -25,7 +24,7 @@
         }
 
         //Bot or not?
-        $secret = "6LcW-yQhAAAAAGzOEBVNqX35J9sTTVpHQKvLqbAi";
+        $secret = "6LdSiXIhAAAAADwqi-oA1rEJ2bT7-mZUmVWMU5Y8";
 
         $check = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
 
@@ -66,13 +65,14 @@
 				}	
                 if ($all_ok == true){
                     //Wszystkie testy zaliczone, dodajemy do bazy
-                    if ($connection->query("INSERT INTO users VALUES (NULL, '$username','$password_hash', '$email')")){
-                        $_SESSION['successfulRegistration'] = true;  
-                        header('Location: welcome.php');
+                    if ($connection->query("INSERT INTO users VALUES (NULL, '$username','$password_hash', '$email')")){ 
                         $connection->query("INSERT INTO incomes_category_assigned_to_users (id, user_id, name) SELECT incomes_category_default.id, users.id, incomes_category_default.name FROM incomes_category_default, users WHERE email='$email'");
                         $connection->query("INSERT INTO expenses_category_assigned_to_users (id, user_id, name) SELECT expenses_category_default.id, users.id, expenses_category_default.name FROM expenses_category_default, users WHERE email='$email'");
                         $connection->query("INSERT INTO payment_methods_assigned_to_users (id, user_id, name) SELECT payment_methods_default.id, users.id, payment_methods_default.name FROM payment_methods_default, users WHERE email='$email'");
+                        $_SESSION['successfulRegistration'] = true; 
+                        header('Location: welcome.php');
                     }
+                  
                     else{
                         throw new Exception($connection->error);
                     }
@@ -173,7 +173,7 @@
                             }
                         ?>
                     </p>     
-                    <div class="g-recaptcha" data-sitekey="6LcW-yQhAAAAAKWjSKrtqJa3vUSTPsFo1gA8ZZec"></div>   
+                    <div class="g-recaptcha" data-sitekey="6LdSiXIhAAAAAJ82JINrTdobcOPdW9zqWKxYewVb"></div>   
                     <?php
                             if (isset($_SESSION['e_bot'])){
                                 echo '<div class = "error">'.$_SESSION['e_bot'].'</div>';
