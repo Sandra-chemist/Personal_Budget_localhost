@@ -12,10 +12,11 @@
     $connection = new mysqli($host, $db_user, $db_password, $db_name);
     $user_id = $_SESSION['id'];
 
-    $from_date = '2022-07-01';
-    $to_date = '2022-07-31'; 
+    $from_date = '2022-08-01';
+    $to_date = '2022-08-31'; 
   
     $result_1 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
+    
     $result_2 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 2 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
     $result_3 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 3 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
     $result_4 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 4 && date_of_income BETWEEN '$from_date' AND '$to_date'");

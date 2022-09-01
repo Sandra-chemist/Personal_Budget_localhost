@@ -12,9 +12,10 @@
     $connection = new mysqli($host, $db_user, $db_password, $db_name);
     $user_id = $_SESSION['id'];
 
-    $from_date = '2022-08-01';
-    $to_date = '2022-08-31';
+    $from_date = '2022-09-01';
+    $to_date = '2022-09-30';
    
+    $result_a = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
     $result_1 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
     $result_2 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 2 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
     $result_3 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 3 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
@@ -51,6 +52,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+           
+          ['Incomes', 'Hours per Day'],
+        
+          <?php
+                while ($chart = mysqli_fetch_assoc($result_a)){
+                    echo "['".$chart['income_category_assigned_to_user_id']."',".$chart['amount']."],";
+                }
+        ?>
+        ]);
+
+        var options = {
+          title: 'Incomes'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
 </head>
 
 <body>
@@ -89,7 +118,8 @@
                             }
                             $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
                             while($rows = mysqli_fetch_assoc($res)){
-                                echo "Suma: ".$rows['total'];
+                                $salary = $rows['total'];
+                                echo "Suma: $salary";
                             }
                         }
                         else{
@@ -174,7 +204,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="piechart1"></div>
+                    <div id="piechart"></div>
                 </section>
                 <section class="col-xl-6 col-xxl-4">
                     <table>
