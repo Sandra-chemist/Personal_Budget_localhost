@@ -1,7 +1,6 @@
 <?php
 
     session_start();
-
     if(!isset($_SESSION['logged'])){
         header('Location: index.php');
         exit();
@@ -10,33 +9,37 @@
     require_once "connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
     $connection = new mysqli($host, $db_user, $db_password, $db_name);
+    
     $user_id = $_SESSION['id'];
+    
+    $startDate = '2022-01-01';
+    $endDate = '2022-12-31';
 
-    $from_date = '2022-01-01';
-    $to_date = '2022-12-31'; 
-  
-    $result_1 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
-    $result_2 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 2 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
-    $result_3 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 3 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
-    $result_4 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 4 && date_of_income BETWEEN '$from_date' AND '$to_date'");
+    $sql_income = $connection->query("SELECT `name`, SUM(`amount`) AS incomeSum FROM `incomes`, `incomes_category_assigned_to_users` WHERE `incomes`.`income_category_assigned_to_user_id` = `incomes_category_assigned_to_users`.`id` AND `incomes`.`user_id` = '$user_id' AND `incomes`.`date_of_income` BETWEEN '$startDate' AND '$endDate' GROUP BY `income_category_assigned_to_user_id` ORDER BY incomeSum DESC");
+    $sql_expense = $connection->query("SELECT `name`, SUM(`amount`) AS expenseSum FROM `expenses`, `expenses_category_assigned_to_users` WHERE `expenses`.`expense_category_assigned_to_user_id` = `expenses_category_assigned_to_users`.`id` AND `expenses`.`user_id` = '$user_id' AND `expenses`.`date_of_expense` BETWEEN '$startDate' AND '$endDate' GROUP BY `expense_category_assigned_to_user_id` ORDER BY expenseSum DESC");
+
+    $result_1 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1 && date_of_income BETWEEN '$startDate' AND '$endDate'"); 
+    $result_2 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 2 && date_of_income BETWEEN '$startDate' AND '$endDate'"); 
+    $result_3 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 3 && date_of_income BETWEEN '$startDate' AND '$endDate'"); 
+    $result_4 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 4 && date_of_income BETWEEN '$startDate' AND '$endDate'");
     
-    $result_1e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 1 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
-    $result_2e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 2 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
-    $result_3e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 3 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
-    $result_4e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 4 && date_of_expense BETWEEN '$from_date' AND '$to_date'");
-    $result_5e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 5 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
-    $result_6e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 6 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
-    $result_7e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 7 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
-    $result_8e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 8 && date_of_expense BETWEEN '$from_date' AND '$to_date'");
-    $result_9e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 9 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
-    $result_10e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 10 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
-    $result_11e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 11 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
-    $result_12e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 12 && date_of_expense BETWEEN '$from_date' AND '$to_date'");
-    $result_13e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 13 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
-    $result_14e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 14 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
-    $result_15e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 15 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
-    $result_16e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 16 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
-    
+    $result_1e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 1 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
+    $result_2e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 2 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
+    $result_3e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 3 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
+    $result_4e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 4 && date_of_expense BETWEEN '$startDate' AND '$endDate'");
+    $result_5e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 5 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
+    $result_6e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 6 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
+    $result_7e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 7 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
+    $result_8e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 8 && date_of_expense BETWEEN '$startDate' AND '$endDate'");
+    $result_9e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 9 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
+    $result_10e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 10 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
+    $result_11e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 11 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
+    $result_12e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 12 && date_of_expense BETWEEN '$startDate' AND '$endDate'");
+    $result_13e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 13 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
+    $result_14e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 14 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
+    $result_15e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 15 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
+    $result_16e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 16 && date_of_expense BETWEEN '$startDate' AND '$endDate'");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,8 +54,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500&display=swap" rel="stylesheet">
-</head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+           
+          ['Incomes', 'Amount'],
+          <?php
+                while ($chart = mysqli_fetch_assoc($sql_income)){
+                    echo "['".$chart['name']."',".$chart['incomeSum']."],";
+                }
+        ?>
+        ]);
+
+        var options = {
+          title: 'Przychody'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+
+        var data1 = google.visualization.arrayToDataTable([
+           
+           ['Expenses', 'Amount'],
+           <?php
+                 while ($chart = mysqli_fetch_assoc($sql_expense)){
+                     echo "['".$chart['name']."',".$chart['expenseSum']."],";
+                 }
+         ?>
+         ]);
+         var options1 = {
+          title: 'Wydatki'
+        };
+
+        var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
+        chart1.draw(data1, options1);
+      }
+    </script>
+</head>
 <body>
     <header>
         <h1 class="logo">Budżet Osobisty</h1>
@@ -87,7 +130,7 @@
                               echo $row['amount']." ";
                               echo $row['income_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1 && date_of_income BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                                 echo "Suma: ".$rows['total'];
                             }
@@ -108,7 +151,7 @@
                                echo $row['amount']." ";
                                echo $row['income_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 2 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 2 && date_of_income BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                                 echo "Suma: ".$rows['total'];
                             }
@@ -129,7 +172,7 @@
                                echo $row['amount']." ";
                                echo $row['income_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 3 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 3 && date_of_income BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -150,7 +193,7 @@
                                 echo $row['amount']." ";
                                 echo $row['income_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 4 && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 4 && date_of_income BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                                 echo "Suma: ".$rows['total'];
                             }
@@ -165,7 +208,7 @@
                                 <th>Suma</th>
                                 <th>
                                 <?php
-                                   $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && date_of_income BETWEEN '$from_date' AND '$to_date'"); 
+                                   $res = $connection->query("SELECT incomes.id, SUM(incomes.amount) AS total FROM incomes WHERE user_id = '$user_id' && date_of_income BETWEEN '$startDate' AND '$endDate'"); 
                                    while($rows = mysqli_fetch_assoc($res)){
                                        echo $rows['total'];
                                    } 
@@ -174,7 +217,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="piechart1"></div>
+                    <div id="piechart"></div>
                 </section>
                 <section class="col-xl-6 col-xxl-4">
                     <table>
@@ -197,7 +240,7 @@
                              // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 1 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 1 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -219,7 +262,7 @@
                              // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 2 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 2 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -240,7 +283,7 @@
                              // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 3 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 3 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -261,7 +304,7 @@
                              // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 4 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 4 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -283,7 +326,7 @@
                              // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 5 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 5 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -304,7 +347,7 @@
                              // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 6 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 6 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -325,7 +368,7 @@
                              // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 7 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 7 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -347,7 +390,7 @@
                             //  echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 8 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 8 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -369,7 +412,7 @@
                              // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 9 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 9 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -391,7 +434,7 @@
                              // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 10 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 10 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -413,7 +456,7 @@
                              // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 11 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 11 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -435,7 +478,7 @@
                              // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 12 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 12 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -457,7 +500,7 @@
                              // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 13 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 13 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -479,7 +522,7 @@
                             //  echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 14 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 14 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -501,7 +544,7 @@
                             //  echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 15 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 15 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -523,7 +566,7 @@
                              // echo $row['payment_method_assigned_to_user_id']." ";
                               echo $row['expense_comment']."<br>";
                             }
-                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 16 && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                            $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 16 && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                             while($rows = mysqli_fetch_assoc($res)){
                             echo "Suma: ".$rows['total'];
                         }
@@ -537,7 +580,7 @@
                             <tr class="total">
                                 <th>Suma</th>
                                 <th> <?php
-                                   $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && date_of_expense BETWEEN '$from_date' AND '$to_date'"); 
+                                   $res = $connection->query("SELECT expenses.id, SUM(expenses.amount) AS total FROM expenses WHERE user_id = '$user_id' && date_of_expense BETWEEN '$startDate' AND '$endDate'"); 
                                    while($rows = mysqli_fetch_assoc($res)){
                                        echo $rows['total'];
                                    } 
@@ -545,7 +588,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="piechart2"></div>
+                    <div id="piechart1"></div>
                 </section>
             </div>
         </article>
