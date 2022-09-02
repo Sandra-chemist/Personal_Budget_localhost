@@ -13,29 +13,6 @@
     $connection = new mysqli($host, $db_user, $db_password, $db_name);
 
     $user_id = $_SESSION['id'];
-
-    $result_1 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1"); 
-    $result_2 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 2"); 
-    $result_3 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 3"); 
-    $result_4 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 4");
-    
-    $result_1e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 1"); 
-    $result_2e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 2"); 
-    $result_3e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 3"); 
-    $result_4e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 4");
-    $result_5e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 5"); 
-    $result_6e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 6"); 
-    $result_7e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 7"); 
-    $result_8e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 8");
-    $result_9e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 9"); 
-    $result_10e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 10"); 
-    $result_11e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 11"); 
-    $result_12e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 12");
-    $result_13e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 13"); 
-    $result_14e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 14"); 
-    $result_15e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 15"); 
-    $result_16e = $connection->query("SELECT * FROM expenses WHERE user_id = '$user_id' && expense_category_assigned_to_user_id = 16");
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">

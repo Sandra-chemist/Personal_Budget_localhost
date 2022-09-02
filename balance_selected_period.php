@@ -40,14 +40,15 @@
                 <form>
                     <p>
                                 <div class="form_group">
-                                    <label id="start">Data początkowa</label>
-                                    <input type="date" name="from_date" class="form_control" required>
+                                    <label class="start" for="start">Data początkowa</label>
+                                    <input type="date" id="start" name="from_date"class="form_control" required>
                                 </div>
                                 <div class="form_group">
-                                    <label id="end">Data końcowa</label>
-                                    <input type="date" name="to_date" class="form_control" required>
+                                    <label class="end" for="start">Data końcowa</label>
+                                    <input type="date"id="end" name="to_date" class="form_control" required>
                                 </div>
-                                <h5><?php
+                                <h5>
+                                    <?php
 if(isset($_GET['from_date']) && isset($_GET['to_date'])){
    $from_date = $_GET['from_date']; 
    $to_date = $_GET['to_date']; 
@@ -582,5 +583,6 @@ if(isset($_GET['from_date']) && isset($_GET['to_date'])){
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
         crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="personalBudget.js"></script>
 </body>
 </html>

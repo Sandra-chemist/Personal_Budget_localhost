@@ -107,7 +107,7 @@
                     </p>
                     <p>
                         <label class="payment">Metoda Płatności </label>
-                        <select id="payments" name="pay">
+                        <select id="payments" name="payments">
                             <option value="1">gotówka</option>
                             <option value="2">karta debetowa</option>
                             <option value="3">karta kredytowa</option>
@@ -115,7 +115,7 @@
                     </p>
                     <p>
                         <label class="date" for="start">Data </label> 
-                        <input type="date" id="start" name="date" min="2000-01-01" required>
+                        <input type="date" id="start" name="date" min="2000-01-01">
                     </p>
                     <p>
                         <label class="comment">Komentarz </label>
