@@ -160,7 +160,8 @@ td{
     margin-right: 10px;
 }
 #piechart,
-#piechart1{
+#piechart1,
+#piechart2{
     width: 600px; 
     height: 500px;
 }

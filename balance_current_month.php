@@ -1,9 +1,6 @@
 <?php
 
     session_start();
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
     if(!isset($_SESSION['logged'])){
         header('Location: index.php');
         exit();
@@ -14,8 +11,6 @@
     $connection = new mysqli($host, $db_user, $db_password, $db_name);
     
     $user_id = $_SESSION['id'];
-    
-    echo date('m');
     
     $startDate = '2022-09-01';
     $endDate = '2022-09-30';
