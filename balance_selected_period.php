@@ -11,14 +11,14 @@
     mysqli_report(MYSQLI_REPORT_STRICT);
     $connection = new mysqli($host, $db_user, $db_password, $db_name);
     $user_id = $_SESSION['id'];
+    
     $startDate = $_GET['startDate']; 
-   $endDate = $_GET['endDate']; 
+    $endDate = $_GET['endDate']; 
 
     $sql_income = $connection->query("SELECT `name`, SUM(`amount`) AS incomeSum FROM `incomes`, `incomes_category_assigned_to_users` WHERE `incomes`.`income_category_assigned_to_user_id` = `incomes_category_assigned_to_users`.`id` AND `incomes`.`user_id` = '$user_id' AND `incomes`.`date_of_income` BETWEEN '$startDate' AND '$endDate' GROUP BY `income_category_assigned_to_user_id` ORDER BY incomeSum DESC");
     $sql_expense = $connection->query("SELECT `name`, SUM(`amount`) AS expenseSum FROM `expenses`, `expenses_category_assigned_to_users` WHERE `expenses`.`expense_category_assigned_to_user_id` = `expenses_category_assigned_to_users`.`id` AND `expenses`.`user_id` = '$user_id' AND `expenses`.`date_of_expense` BETWEEN '$startDate' AND '$endDate' GROUP BY `expense_category_assigned_to_user_id` ORDER BY expenseSum DESC");
        
-        if($startDate < $endDate){          
-        $result_1 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1 && date_of_income BETWEEN '$startDate' AND '$endDate'"); 
+        if($startDate < $endDate){           
         $result_1 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 1 && date_of_income BETWEEN '$startDate' AND '$endDate'"); 
         $result_2 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 2 && date_of_income BETWEEN '$startDate' AND '$endDate'"); 
         $result_3 = $connection->query("SELECT * FROM incomes WHERE user_id = '$user_id' && income_category_assigned_to_user_id = 3 && date_of_income BETWEEN '$startDate' AND '$endDate'"); 
@@ -115,7 +115,7 @@
                                 </div>
                                 <div class="form_group">
                                     <label class="end" for="start">Data końcowa</label>
-                                    <input type="date"id="end" name="endDate" class="form_control" required>
+                                    <input type="date"id="end" value="2022-09-01" name="endDate" class="form_control" required>
                                 </div>
                                 <h5><?php
                                 if($startDate < $endDate){          
